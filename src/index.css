@@ -1,0 +1,61 @@
+body {
+  background-image: url('website-background.png');
+  background-size: cover;
+} 
+
+header {
+  position: fixed;
+  background-image: url('header-background.png');
+  background-size: cover;
+}
+
+#logo {
+  padding: 0;
+  margin: 0;
+  width: 15%;
+  clip-path: circle();
+} 
+
+nav {
+  margin-left: 18%;
+  vertical-align: top;
+  display: inline;
+  font-size: 30px;     
+}
+
+.parkinglot {
+  width: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+li {
+  color:black;
+  display: inline;
+  padding-right: 50px;
+}
+
+#information {
+  float: left; 
+  margin-top: 150px;
+  text-align: justify;
+}
+
+#information h1 {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+}
