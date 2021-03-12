@@ -1,11 +1,11 @@
 body {
-  background-image: url('website-background.png');
+  background-image: url('../images/backgrounds/website.png');
   background-size: cover;
 } 
 
 header {
   position: fixed;
-  background-image: url('header-background.png');
+  background-image: url('../images/backgrounds/header.png');
   background-size: cover;
 }
 

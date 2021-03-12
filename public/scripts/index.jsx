@@ -3,7 +3,7 @@ class Header extends React.Component {
         return (
             <header>
                 <a> 
-                    <img id="logo" src="logo.gif"/>
+                    <img id="logo" src="images/logo.gif"/>
                 </a>
                 <nav>
                     <ol>
@@ -32,7 +32,7 @@ class Info extends React.Component {
                    costly, and stressful. This is Filler text purely for demonstrating scroll, 
                    This is Filler text purely for demonstrating
                 </p>
-                <img class="parkinglot" src="busylot.jpg"></img>
+                <img class="parkinglot" src="images/busy-parking-lot.jpg"></img>
                 <h1>The Dilema of Parking!</h1>
                 <p>Current parking methods are inefficient, they are time consuming,
                    costly, and stressful.This is Filler text purely for demonstrating scroll, 
