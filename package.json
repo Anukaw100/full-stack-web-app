@@ -1,0 +1,32 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A personal project to boost our portfolios. Not for publishing.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anukaw100/parking-detection-ml-website.git"
+  },
+  "keywords": [
+    "web",
+    "development",
+    "parking",
+    "object",
+    "detection",
+    "machine",
+    "learning"
+  ],
+  "author": "Anukaw100 and ss-raicangu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Anukaw100/parking-detection-ml-website/issues"
+  },
+  "homepage": "https://github.com/Anukaw100/parking-detection-ml-website#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
