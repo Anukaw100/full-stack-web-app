@@ -7,9 +7,9 @@ class Header extends React.Component {
         </a>
         <nav>
           <ol class="list">
-            <li><a>State of Parking</a></li>
-            <li><a>Why A.I?</a></li>
-            <li><a>Our Product</a></li>
+            <li><a href="/state-of-parking/">State of Parking</a></li>
+            <li><a href="/why-ai/">Why A.I?</a></li>
+            <li><a href="/product/">Product</a></li>
             <li id="loginicon"><a href="/login/">Login</a></li>
           </ol>
         </nav>
