@@ -1,4 +1,15 @@
 class Header extends React.Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  openSideBar() {
+    console.log("sdfsdf");
+    document.getElementById('sidebar').classList.toggle('collapsed')
+    console.log("sdfsdf");
+  }
+
   render() {
     return (
       <header id="headerhome">
@@ -6,12 +17,17 @@ class Header extends React.Component {
           <img class="logo" src="/images/logo.gif"/>
         </a>
         <nav>
-          <ol class="list">
+          <ol id="fullnav" class="list">
             <li><a href="/state-of-parking/">State of Parking</a></li>
             <li><a href="/why-ai/">Why A.I?</a></li>
             <li><a href="/product/">Product</a></li>
             <li id="loginicon"><a href="/login/">Login</a></li>
           </ol>
+
+          <div id="sidebar" class="collapsed"></div>
+          <button title="Toggle sidebar" onClick={this.openSideBar}></button>
+          {/* <div id="content"></div> */}
+
         </nav>
       </header>
     );
