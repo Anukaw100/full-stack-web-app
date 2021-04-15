@@ -1,4 +1,4 @@
-#header { 
+header {
   height: 67px;
   width: 100%;
   position: fixed;
@@ -6,47 +6,89 @@
   background-size: cover;
 }
 
-.logo {
-  float: left;
+a.logo {
   padding-top: 5px;
   padding-left: 20px;
   width: 8%;
-} 
+  float: left;
+}
 
-nav {
+a.logo img {
+  width: 100%;
+}
+
+header nav {
   margin-top: 15px;
   text-align: center;
   margin-left: 14%;
-  font-size: 30px;     
+  font-size: 30px;
 }
 
-li {
-  display: inline;
-  padding-right: 50px;
-}
-
-.list {
+nav.list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: inline;
 }
 
-.list a {
+nav.list a {
   color:black;
   text-decoration: none;
 }
 
-.header-item {
-  float: right;
+nav.list li {
+  display: inline;
+  padding-right: 50px;
+}
+
+li.loginButton {
   color:white;
   display: inline;
+  float: right;
+}
+
+header button {
+  display: none;
 }
 
 footer {
   font-size: 18px;
   text-align: center;
-  float: left;
   width: 100%;
   margin-top: 100px;
+  float: left;
+}
+
+@media (max-width: 990px) {
+  nav#navigation {
+    display: none;
+  }
+
+  div#sidebar {  /* FIXME #content removed */
+    height: 20rem;
+    overflow:auto;
+    float:right;
+    transition: width .35s;
+    /* XXX The following styles were in a separate #sidebar selector. */
+    display: block;
+    background:white;
+    width: 30%;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.5);
+  }
+
+  div#sidebar.collapsed {
+    width: 0;
+  }
+
+  header button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+    border:none;
+    outline:none;
+    background: black;
+    cursor:pointer;
+    float:right;
+  }
 }

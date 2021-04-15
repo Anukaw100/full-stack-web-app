@@ -9,35 +9,31 @@ import Sample from "Images/busy-parking-lot.jpg";
 class Info extends React.Component {
   render() {
     return (
-      <main id="main-home">
-        <div id="information">
-          <h1>The Dilema of Parking!</h1>
-          <p>This is Filler text purely for demonstrating
-            Current parking methods are inefficient, they are time consuming,
-            costly, and stressful. This is Filler text purely for demonstrating scroll,
-            This is Filler text purely for demonstrating
-            Current parking methods are inefficient, they are time consuming,
-            costly, and stressful. This is Filler text purely for demonstrating scroll,
-            This is Filler text purely for demonstrating
-          </p>
-          <br />
-          <img src={Sample} />
-        </div>
-      </main>
+      <div className="information">
+        <h1>The Dilema of Parking!</h1>
+        <p>
+          Current parking methods are inefficient. They are time consuming,
+          costly, and stressful. This is Filler text purely for demonstration!
+        </p>
+        <br />
+        <img src={Sample} />
+      </div>
     );
   }
 };
 
-class Board extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div>
         <Header />
-        <Info />
+        <main id="mainContent">
+          <Info />
+        </main>
         <Footer />
       </div>
     );
   }
 }
 
-ReactDOM.render(<Board />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

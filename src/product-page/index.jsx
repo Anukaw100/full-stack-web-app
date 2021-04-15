@@ -8,19 +8,18 @@ class Uploader extends React.Component {
   constructor(props) {
     super(props);
     this.fileInput = React.createRef();
-    this.state = [{ fileURL: '' }];
+    this.state = [{ fileURL: '' }];  // TODO Add default image.
   }
 
   readFileAndURL(event) {
     // [Help by Adam Lusk](https://vadlusk.medium.com/a-newbs-guide-working-with-user-uploaded-image-files-with-react-23795c6da346)
-    event.preventDefault(); // Don't take the default action.
+    event.preventDefault();
     const fileReader = new FileReader();
     fileReader.onload = () => { this.setState({ fileURL: fileReader.result })};
     fileReader.readAsDataURL(event.target.files[0]);
   }
 
   render() {
-    // TODO Add a handleSubmit function.
     return (
       <form>
         <input
@@ -36,21 +35,21 @@ class Uploader extends React.Component {
           src={this.state.fileURL}
           height="300"
           width="400"
-          alt="Click or drag to add image"
+          alt="Click/Drag to upload image"
         />
-        <br />
-        <button type="submit">Find parking spaces</button>
+        <br />  {/* FIXME <br /> is bad practice */}
+        <button type="submit">Find parking spaces</button>  {/* FIXME */}
       </form>
     );
   }
 }
 
-class Content extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div>
         <Header />
-        <main id="main-product">
+        <main id="main">
           <h1>Try our product</h1>
           <div>
             Upload an image of a parking lot here to see a labelled image of
@@ -64,4 +63,4 @@ class Content extends React.Component {
   }
 }
 
-ReactDOM.render(<Content />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

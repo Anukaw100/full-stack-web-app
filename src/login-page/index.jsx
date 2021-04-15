@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/running-sections.jsx";
 import "./index.css";
 
-class Account extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {loginForm: true};
@@ -12,74 +12,84 @@ class Account extends React.Component {
   }
 
   changeForm() {
-    console.log("Changing value of loginForm from " + this.state.loginForm);
     this.setState({loginForm: !this.state.loginForm})
   }
 
+  // TODO Add required attributes to <input> fields.
   renderLogin () {
     return (
-      <main id="main-login">
-        <div id="login-div">
-          <h1>Login</h1><br />
-          <form>
-            <label for="email">Email:</label> <br /><br />
-            <input type="text" id="login-email" name="login-email" /> <br /><br />
-            <label for="lname">Password:</label><br /> <br />
-            <input type="password" id="login-password" name="login-password" /> <br /><br /><br />
-            <button type='button'>Submit</button><br /><br /><br />
-            <span>OR</span><br /><br /><br />
-            <button type='button' onClick={this.changeForm}>Create New Account</button><br /><br />
-          </form>
-        </div>
-      </main>
+      <div className="login">
+        {/* FIXME Bad practice to use <br/> for line spacing. */}
+        <h1>Login</h1>
+        <br />
+        <form>
+          <label htmlFor="email">Email:</label>
+          <br /><br />
+          <input type="text" name="email" />
+          <br /><br />
+          <label htmlFor="password">Password:</label>
+          <br /><br />
+          <input type="password" name="password" />
+          <br /><br /><br />
+          <button type="button">Submit</button>  {/* FIXME */}
+          <br /><br /><br />
+          <span>OR</span>
+          <br /><br /><br />
+          <button type="button" onClick={this.changeForm}>Create Account</button>
+          <br /><br />
+        </form>
+      </div>
     );
   }
 
+  // TODO Add required attributes to <input> fields.
   renderSignUp () {
     return (
-      <main id="main-login">
-        <div id="login-div">
-          <h1>Sign Up</h1><br />
-          <form>
-            <label for="signup-name">Name:</label> <br />
-            <input type="text" id="signup-name" name="signup-name" /> <br /><br />
-            <label for="email">Email:</label> <br />
-            <input type="text" id="email" name="email" /> <br /><br />
-            <label for="password">Password:</label> <br />
-            <input type="password" id="signup-password" name="signup-password" /> <br /><br /><br />
-            <button type='button'>Submit</button><br /><br /><br />
-            <span>OR</span><br /><br /><br />
-            <button type='button' onClick={this.changeForm}>Login</button><br /><br />
-          </form>
-        </div>
-      </main>
+      <div className="login">
+        {/* FIXME Bad practice to use <br/> for line spacing. */}
+        <h1>Sign Up</h1>
+        <br />
+        <form>
+          <label htmlFor="name">Name:</label>
+          <br />
+          <input type="text" name="name" />
+          <br /><br />
+          <label htmlFor="email">Email:</label>
+          <br />
+          <input type="email" name="email" />
+          <br /><br />
+          <label htmlFor="password">Password:</label>
+          <br />
+          <input type="password" name="password" />
+          <br /><br /><br />
+          <button type="button">Submit</button>  {/* FIXME */}
+          <br /><br /><br />
+          <span>OR</span>
+          <br /><br /><br />
+          <button type="button" onClick={this.changeForm}>Login</button>
+          <br /><br />
+        </form>
+      </div>
     );
   }
 
   render() {
-    if(this.state.loginForm) {
-      console.log("This is login form: " + this.state.loginForm);
-      return(this.renderLogin());
-    } else {
-      console.log("This is SignUp form: " + this.state.loginForm)
-      return(this.renderSignUp());
-    }
+    return this.state.loginForm ? this.renderLogin() : this.renderSignUp();
   }
 }
 
-class Board extends React.Component {
+class App extends React.Component {
   render() {
     return(
       <div>
         <Header />
-        <main>
-          <Account />
+        <main id="main">
+          <LoginForm />
         </main>
         <Footer />
-        {console.log("board")}
       </div>
     );
   }
 }
 
-ReactDOM.render(<Board />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
