@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import { Header, Footer } from "Common/running-sections.jsx";
-import "./index.css";
+import "Common/shared.css";
 
 import Sample from "Images/busy-parking-lot.jpg";
 
@@ -41,4 +41,4 @@ class Board extends React.Component {
   }
 }
 
-ReactDOM.render(<Board />, document.getElementById("home"));
+ReactDOM.render(<Board />, document.getElementById("root"));

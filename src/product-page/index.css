@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  background-image: url('/images/backgrounds/website.png');
+  background-image: url('Images/backgrounds/website.png');
   background-size: cover;
-} 
+}
 
-#headerhome { 
+#headerhome {
   height: 67px;
   width: 100%;
-  background-image: url('/images/backgrounds/header.png');
+  background-image: url('Images/backgrounds/header.png');
   background-size: cover;
 }
 
@@ -20,13 +20,13 @@ img {
   padding-top: 5px;
   padding-left: 20px;
   width: 8%;
-} 
+}
 
 nav {
   margin-top: 15px;
   text-align: center;
   margin-left: 14%;
-  font-size: 30px;     
+  font-size: 30px;
 }
 
 #loginicon {

@@ -1,14 +1,8 @@
-class Header extends React.Component {
-  render() {
-    return (
-      <header id="headerlogin">
-        <a href="/"> 
-          <img class="logo" src="/images/logo.gif"/>
-        </a>
-      </header>
-    );
-  }
-}
+import React from "react";
+import ReactDOM from "react-dom";
+
+import { Header, Footer } from "Common/running-sections.jsx";
+import "./index.css";
 
 class Account extends React.Component {
   constructor(props) {
@@ -73,25 +67,14 @@ class Account extends React.Component {
   }
 }
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <footer>
-        <ol class="list">
-          <li><a href="https://github.com/Anukaw100/parking-detection-ml-website">GitHub</a></li>
-          <li>Contact Us</li>
-        </ol>
-      </footer>
-    );
-  }
-}
-
 class Board extends React.Component {
   render() {
     return(
       <div>
         <Header />
-        <Account />
+        <main>
+          <Account />
+        </main>
         <Footer />
         {console.log("board")}
       </div>
@@ -99,4 +82,4 @@ class Board extends React.Component {
   }
 }
 
-ReactDOM.render(<Board />, document.getElementById("login"));
+ReactDOM.render(<Board />, document.getElementById("root"));

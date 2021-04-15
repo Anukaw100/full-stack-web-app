@@ -1,22 +1,8 @@
-class Header extends React.Component {
-  render() {
-    return (
-      <header id="headerhome">
-        <a href="/"> 
-          <img class="logo" src="/images/logo.gif"/>
-        </a>
-        <nav>
-          <ol class="list">
-            <li><a href="/state-of-parking/">State of Parking</a></li>
-            <li><a href="/why-ai/">Why A.I?</a></li>
-            <li><a href="/product/">Product</a></li>
-            <li id="loginicon"><a href="/login/">Login</a></li>
-          </ol>
-        </nav>
-      </header>
-    );
-  }
-}
+import React from "react";
+import ReactDOM from "react-dom";
+
+import { Header, Footer } from "Common/running-sections.jsx";
+import "./index.css";
 
 class Uploader extends React.Component {
   constructor(props) {
@@ -59,19 +45,6 @@ class Uploader extends React.Component {
   }
 }
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <footer>
-        <ol class="list">
-          <li><a href="https://github.com/Anukaw100/parking-detection-ml-website">GitHub</a></li>
-          <li>Contact Us</li>
-        </ol>
-      </footer>
-    );
-  }
-}
-
 class Content extends React.Component {
   render() {
     return (
@@ -91,4 +64,4 @@ class Content extends React.Component {
   }
 }
 
-ReactDOM.render(<Content />, document.getElementById("product"));
+ReactDOM.render(<Content />, document.getElementById("root"));

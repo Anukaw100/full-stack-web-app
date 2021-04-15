@@ -8,15 +8,26 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, "src", "homepage", "index.jsx"),
+    index: path.resolve(__dirname, "src", "index-page", "index.jsx"),
+    parking: path.resolve(__dirname, "src", "parking-page", "index.jsx"),
+    ai: path.resolve(__dirname, "src", "ai-page", "index.jsx"),
+    product: path.resolve(__dirname, "src", "product-page", "index.jsx"),
+    login: path.resolve(__dirname, "src", "login-page", "index.jsx"),
   },
   // `publicPath' and `clean' options removed.
-  // `publicPath' removed for debugging. `clean' option until files reordered. 
+  // `publicPath' removed for debugging. `clean' option until files reordered.
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
+  // TODO Add "externals" options in production code.
   mode: "development",
+  devtool: 'inline-source-map',  // FIXME
+  watchOptions: {
+    ignored: [path.resolve(__dirname, "node_modules")],
+    aggregateTimeout: 500,
+  },
   module: {
     rules: [
       {
@@ -49,7 +60,39 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "views", "homepage.html"),
+      filename: path.resolve(__dirname, "dist", "index.html"),
+      template: path.resolve(__dirname, "views", "index.html"),
+      title: "Parking Space Detector",
+      inject: "body",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, "dist", "state-of-parking", "index.html"),
+      template: path.resolve(__dirname, "views", "index.html"),
+      title: "State of Parking - Parking Space Detector",
+      inject: "body",
+      chunks: ["parking"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, "dist", "why-ai", "index.html"),
+      template: path.resolve(__dirname, "views", "index.html"),
+      title: "Why AI? - Parking Space Detector",
+      inject: "body",
+      chunks: ["ai"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, "dist", "product", "index.html"),
+      template: path.resolve(__dirname, "views", "index.html"),
+      title: "Our Product - Parking Space Detector",
+      inject: "body",
+      chunks: ["product"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, "dist", "login", "index.html"),
+      template: path.resolve(__dirname, "views", "index.html"),
+      title: "Login - Parking Space Detector",
+      inject: "body",
+      chunks: ["login"],
     }),
   ],
 };
