@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import { Header, Footer } from "Common/running-sections.jsx";
+import "Common/shared.css";
 import "./index.css";
 
 class Uploader extends React.Component {

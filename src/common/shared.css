@@ -1,34 +1,74 @@
 body {
   margin: 0;
-  background-image: url('Images/backgrounds/website.png');
-  background-size: cover;
+  background-color: rgba(56, 59, 68, 0.431);
 }
 
-main {
-  float: left;
-  margin-top: 120px;
-  text-align: center;
+#main {
+  padding-top: 3%;
 }
 
-div.information {
+.container {
   text-align: center;
   margin: auto;
-  width: 50%;
-  border: 3px solid black;
-  padding: 10px;
+  width: 60%;
 }
 
-div.information h1 {
+h1 {
+  width: 100%;
+  font-size: 3rem;
+  color: #212614;
   text-align: center;
 }
 
-div.information img {
+img {
   width: 100%;
 }
 
-img.parkingLot {
-  width: 15%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1em 0;
+}
+
+.col {
+  text-align: left;
+}
+
+.col-1 {
+  width: 20%;
+}
+
+.col-2 {
+  width: 45%;
+}
+
+.col-3 {
+  width: 70%;
+}
+
+.col-bg {
+  background: #212614;
+  padding: 1em;
+  color: #fff;
+}
+
+@media (max-width: 830px) {
+
+#main {
+  padding-top: 4%;
+}
+}
+
+@media (max-width: 600px) {
+  
+  .columns {
+      flex-direction: column;
+    }
+  
+    .col-1,
+    .col-2,
+    .col-3 {
+      width: 100%;
+    }
 }
