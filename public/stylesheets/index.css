@@ -1,86 +1,117 @@
 body {
   margin: 0;
-  background-image: url('/images/backgrounds/website.png');
-  background-size: cover;
+  background-color: rgba(56, 59, 68, 0.431);
 } 
 
-#information {
-  text-align: center;
-  margin: auto;
-  width: 50%;
-  border: 3px solid black;
-  padding: 10px;
+header { 
+  display: flex;
+  height: 10%;
+  position: sticky;
+  top: 0;
+  background-color: lightgray;
+  justify-content: space-between;
 }
 
-#headerhome { 
-  height: 67px;
-  width: 100%;
-  position: fixed;
-  background-image: url('/images/backgrounds/header.png');
-  background-size: cover;
+a {
+  color: black;
+  text-decoration: none;
 }
+
+.logo {
+  padding-top: 0.25em;  
+  padding-left: 0.25em;
+  width: 8%;
+} 
 
 img {
   width: 100%;
 }
 
-.logo {
-  float: left;
-  padding-top: 5px;
-  padding-left: 20px;
-  width: 8%;
-} 
-
-nav {
-  margin-top: 15px;
-  text-align: center;
-  margin-left: 14%;
-  font-size: 30px;     
+.mainnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  font-size: 2rem;  
+  width: 100%;   
 }
 
-#loginicon {
-  float: right;
-  color:white;
-  display: inline;
+.mainnav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
 }
 
-/* inc sidebar here may not be necessary */
-button, #sidebar {
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-list {
+  width: 40%;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+}
+
+.mainnav-list a {
+  padding-right: 1em;
+}
+
+.loginicon {
+  list-style: none;
+  padding-right: 0.5em;
+}
+
+button, #sidebar-nav {
   display: none;
 }
 
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: inline;
+#main {
+  padding-top: 3%;
 }
 
-.list a {
-  color:black;
-  text-decoration: none;
+.container {
+  text-align: center;
+  margin: auto;
+  width: 60%;
 }
 
-li {
-  display: inline;
-  padding-right: 50px;
-}
-
-#main-home {
-  float: left; 
-  margin-top: 120px;
+h1 {
+  width: 100%;
+  font-size: 3rem;
+  color: #212614;
   text-align: center;
 }
 
-#information h1 {
-  text-align: center;
+.columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1em 0;
 }
 
-.parkinglot {
-  width: 15%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.col {
+  text-align: left;
+}
+
+.col-1 {
+  width: 20%;
+}
+
+.col-2 {
+  width: 45%;
+}
+
+.col-3 {
+  width: 70%;
+}
+
+.col-bg {
+  background: #212614;
+  padding: 1em;
+  color: #fff;
 }
 
 footer {
@@ -88,47 +119,99 @@ footer {
   text-align: center;
   float: left;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 5em;
 }
 
-@media (max-width: 990px) {
-  #fullnav {
+@media (max-width: 830px) {
+
+  .footer-list {
+    width: 50%;
+  }
+
+  .logo {
+    padding-top: 0.25em;  
+    padding-left: 0.25em;
+  } 
+
+  header {
+    justify-content: space-between;
+  }
+
+  .mainnav-list {
     display: none;
   }
 
-  #sidebar, #content {
-    height: 20rem;
-    overflow:auto;
-    float:right;
-    transition: width .35s;
+  .loginicon {
+    display: none;
   }
 
-  #sidebar {
-    display: block;
+  .sidebar-div {
+    display: flex;
+    width: 320px;
+    justify-content: flex-end;
+  }
+
+  .sidebar-list {
+    margin-left: 1em;
+    margin-top: 3em;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    list-style: none;
+    font-size: 1.3rem;
+  }
+
+  .sidebar-list li {
+    margin-bottom: 1em;
+  }
+
+  #sidebar-nav {
+    width: 230px;
+    position: absolute; 
+    z-index: -1;
+    right: 0px;
+    height: 15rem;
+    transition: 1s;
+    display:block;
     background:white;
-    width: 30%;
     box-shadow: 2px 0 4px rgba(0,0,0,0.5);
   }
 
-  #sidebar.collapsed {
-    width: 0;
+  #sidebar-nav.collapsed {
+    right: -230px;
   }
-
-  /* #sidebar.collapsed + #content {
-    width: 100%;
-  } */
 
   button {
     display: block;
-    width: 30px;
-    height: 30px;
+    position: fixed;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     border:none;
     outline:none;
     background: black;
-    margin: 20px;
+    margin: 10px;
     cursor:pointer;
-    float:right;
   }
 
+  #main {
+    padding-top: 4%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .footer-list {
+    width: 65%;
+  }
+
+  .columns {
+    flex-direction: column;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3 {
+    width: 100%;
+  }
 }
