@@ -1,3 +1,7 @@
+.mainnav-list, .loginicon {
+  display:none;
+}
+
 div.login {
   margin-top: 120px;
   text-align: justify;

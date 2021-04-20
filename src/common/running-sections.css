@@ -59,7 +59,7 @@ footer {
   padding-right: 0.5em;
 }
 
-button, #sidebar-nav {
+header button, #sidebar-nav {
   display: none;
 }
 
@@ -129,7 +129,7 @@ footer {
     right: -230px;
   }
 
-  button {
+  header button {
     display: block;
     position: fixed;
     width: 20px;
