@@ -10,17 +10,17 @@ class Info extends React.Component {
   render() {
     return (
       <main>
-        <div class="container">
+        <div className="container">
           <h1>Parking is tough</h1>
           <img src={Sample}/>
-          <div class="columns">
-            <div class="col col-1">
+          <div className="columns">
+            <div className="col col-1">
               <h2>A waste</h2>
               <p>A common problem that drivers face nowadays, especially
               in busy public urban areas, is parking lot congestion
               </p>
             </div>
-            <div class="col col-2">
+            <div className="col col-2">
               <h2>No one wins</h2>
               <p>Road rage is undoubtedly a product of the frustration of 
               finding parking spots which can put other drivers at risk. And not 
@@ -36,15 +36,15 @@ class Info extends React.Component {
               environment.
               </p>
             </div>
-            <div class="col col-1 col-bg">
+            <div className="col col-1 col-bg">
             <p>Americans spend on average 17 
             hours per year at a cost of $73 billion dollars searching for 
             parking. 
             </p>
             </div>
           </div>
-          <div class="columns">
-            <div class="col col-3">
+          <div className="columns">
+            <div className="col col-3">
               <h2>Current solutions to the problem</h2>
               <p>One solution to this problem is to expand the size and/or 
               quantity of parking areas. This solution presents several
@@ -71,7 +71,7 @@ class Info extends React.Component {
 
               </p>
             </div>
-            <div class="col col-1 col-bg">
+            <div className="col col-1 col-bg">
             <p>
             The focus of our work is to let people know when and where a parking spot is available
 This is done using a field in computer vision technology called object detection
