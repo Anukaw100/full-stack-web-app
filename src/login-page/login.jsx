@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { Header, Footer } from "Common/running-sections.jsx";
-import "Common/shared.css";
-import "./index.css";
+import { Header, Footer } from "Common/common-sections.jsx";
+import "Common/universal.css";
+import "./login.css";
 
 class LoginForm extends React.Component {
   constructor(props) {

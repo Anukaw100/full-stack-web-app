@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { Header, Footer } from "Common/running-sections.jsx";
-import "Common/shared.css";
+import { Header, Footer } from "Common/common-sections.jsx";
+import "Common/universal.css";
 
 import Sample from "Images/busy-parking-lot.jpg";
 

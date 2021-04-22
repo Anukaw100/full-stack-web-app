@@ -8,11 +8,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, "src", "index-page", "index.jsx"),
-    parking: path.resolve(__dirname, "src", "parking-page", "index.jsx"),
-    ai: path.resolve(__dirname, "src", "ai-page", "index.jsx"),
-    product: path.resolve(__dirname, "src", "product-page", "index.jsx"),
-    login: path.resolve(__dirname, "src", "login-page", "index.jsx"),
+    index: path.resolve(__dirname, "src", "home-page", "home.jsx"),
+    parking: path.resolve(__dirname, "src", "parking-page", "parking.jsx"),
+    ai: path.resolve(__dirname, "src", "ai-page", "ai.jsx"),
+    product: path.resolve(__dirname, "src", "product-page", "product.jsx"),
+    login: path.resolve(__dirname, "src", "login-page", "login.jsx"),
   },
   // `publicPath' and `clean' options removed.
   // `publicPath' removed for debugging. `clean' option until files reordered.
