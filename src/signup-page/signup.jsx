@@ -5,17 +5,19 @@ import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
 import "Common/authenticate.css";
 
-class LoginForm extends React.Component {
+class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   // TODO Add required attributes to <input> fields.
   render() {
     return (
       <div className="main">
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
         <form>
+          <label htmlFor="name">Name:</label>
+          <input type="text" name="name" />
           <label htmlFor="email">Email:</label>
           <input type="email" name="email" />
           <label htmlFor="password">Password:</label>
@@ -23,7 +25,7 @@ class LoginForm extends React.Component {
           <button type="button">Submit</button>  {/* FIXME */}
         </form>
         <span>OR</span>
-        <a href="/signup/" className="switchform">Create Account</a>
+        <a href="/login/" className="switchform">Login</a>
       </div>
     );
   }
@@ -34,7 +36,7 @@ class App extends React.Component {
     return(
       <div>
         <Header />
-        <LoginForm />
+        <SignUpForm />
         <Footer />
       </div>
     );

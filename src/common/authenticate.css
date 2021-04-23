@@ -1,0 +1,63 @@
+.mainnav-list, .loginicon {
+  display:none;
+}
+
+.main{
+  margin: 3em auto 0 auto;
+  text-align: center;
+  width: 35%;
+  border: 3px solid black;
+  padding: 0;
+}
+
+input, span {
+  display: block;
+  font-size: 1rem;
+  width: 60%;
+  margin: 0 auto 2em auto;
+}
+
+button {
+  margin: 0 auto 3em auto;
+}
+
+.switchform {  
+  justify-content: center;
+  width: 40%;
+  background-color: #1c87c9;
+  border: none;
+  color: white;
+  padding: 0.5em;
+  text-align: center;
+  display: inline-block;
+  font-size: 1rem;
+  margin-bottom: 1em;
+}
+
+header button, .sidebar-nav {
+  display: none;
+}
+
+@media (max-width: 830px) {
+  .main {
+    width: 50%;
+  }
+
+  .switchform {
+    width: 45%;
+  }
+}
+
+@media (max-width: 450px) {
+  .main {
+    width: 90%;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  .switchform {
+    width: 45%;
+  }
+}
