@@ -13,6 +13,7 @@ module.exports = {
     ai: path.resolve(__dirname, "src", "ai-page", "ai.jsx"),
     product: path.resolve(__dirname, "src", "product-page", "product.jsx"),
     login: path.resolve(__dirname, "src", "login-page", "login.jsx"),
+    signup: path.resolve(__dirname, "src", "signup-page", "signup.jsx"),
   },
   // `publicPath' and `clean' options removed.
   // `publicPath' removed for debugging. `clean' option until files reordered.
@@ -93,6 +94,13 @@ module.exports = {
       title: "Login - Parking Space Detector",
       inject: "body",
       chunks: ["login"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, "dist", "signup", "index.html"),
+      template: path.resolve(__dirname, "views", "index.html"),
+      title: "Signup - Parking Space Detector",
+      inject: "body",
+      chunks: ["signup"],
     }),
   ],
 };

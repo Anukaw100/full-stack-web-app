@@ -9,7 +9,7 @@ export class Header extends React.Component {
   }
 
   openSideBar() {
-    document.getElementById('sidebar-nav').classList.toggle('collapsed')
+    document.getElementById('sidebar-toggle').classList.toggle('collapsed')
   }
 
   render() {
@@ -29,7 +29,7 @@ export class Header extends React.Component {
         
         <div className="sidebar-div">
           <button title="Toggle sidebar" onClick={this.openSideBar}></button>
-          <nav id="sidebar-nav" className="collapsed">
+          <nav id="sidebar-toggle" className="sidebar-nav collapsed">
             <ol className="sidebar-list">
               <li><a href="/state-of-parking/">State of Parking</a></li>
               <li><a href="/why-ai/">Why A.I?</a></li>

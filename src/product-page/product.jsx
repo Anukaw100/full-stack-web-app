@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <main id="main">
+        <main> {/*add a class=main here for universal css padding*/}
           <h1>Try our product</h1>
           <div>
             Upload an image of a parking lot here to see a labelled image of

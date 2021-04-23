@@ -27,9 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <main id="mainContent">
-          <Info />
-        </main>
+        <Info />
         <Footer />
       </div>
     );
