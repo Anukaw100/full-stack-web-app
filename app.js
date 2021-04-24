@@ -1,28 +1,28 @@
-const path = require("path");
-const http = require("http");
-const express = require("express");
+import { dirname, resolve } from "path";
+import { fileURLToPath } from "url";
+import { createServer } from "http";
+import express from "express";
+import config from "./webpack.config.js";
 
+const __dirname = dirname(fileURLToPath(import.meta.url))  // required in ES6 modules.
 const app = express();
-const config = require("./webpack.config.js");
 
 app.use(
-  // Options help from https://expressjs.com/en/4x/api.html#express.static
   express.static(
-    path.resolve(__dirname, "dist"),
+    resolve(__dirname, "dist"),
     {
       extensions: ["htm", "html"],
       setHeaders: (res, path, stat) => {
-        // First identified from console:
-        // https://developer.chrome.com/blog/enabling-shared-array-buffer/
         res.set("Cross-Origin-Embedder-Policy", "require-corp");
         res.set("Cross-Origin-Opener-Policy", "same-origin");
       },
     }
   )
 );
-app.set("env", config.mode);
-const options = { port: 3000, host: "localhost" };
 
-http.createServer(app).listen(options, () => {
-  console.log(`Server listening at http://${options.host}:${options.port}`)
+app.set("env", config.mode);
+
+const options = { port: 3000, host: "localhost" };
+createServer(app).listen(options, () => {
+  console.log(`Server listening at (http://${options.host}:${options.port}).`)
 });

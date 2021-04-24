@@ -1,9 +1,9 @@
 {
   "name": "website",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "description": "A personal project to boost our portfolios. Not for publishing.",
-  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
     "watch": "webpack --watch --mode development",
