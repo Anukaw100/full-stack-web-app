@@ -1,4 +1,4 @@
-header { 
+header {
   display: flex;
   height: 10%;
   position: sticky;
@@ -7,30 +7,30 @@ header {
   justify-content: space-between;
 }
 
-a {
+header a, footer a {
   color: black;
   text-decoration: none;
 }
 
 .logo {
-  padding-top: 0.25em;  
+  padding-top: 0.25em;
   padding-left: 0.25em;
   width: 8%;
-} 
+}
 
-img {
+.logo img {
   width: 100%;
 }
 
-.mainnav {
+.nav-menu {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-  font-size: 2rem;  
-  width: 100%;   
+  align-items: center;
+  font-size: 2rem;
+  width: 100%;
 }
 
-.mainnav-list {
+.nav-menu .list {
   display: flex;
   list-style: none;
   margin: 0;
@@ -41,7 +41,7 @@ footer {
   justify-content: center;
 }
 
-.footer-list {
+footer .list {
   width: 40%;
   padding: 0;
   display: flex;
@@ -50,16 +50,16 @@ footer {
   margin: 0;
 }
 
-.mainnav-list a {
+.nav-menu .list a {
   padding-right: 1em;
 }
 
-.loginicon {
+.login-nav-item {
   list-style: none;
   padding-right: 0.5em;
 }
 
-header button, .sidebar-nav {
+header .sidebar button, #sidebar-menu {
   display: none;
 }
 
@@ -72,34 +72,34 @@ footer {
 
 @media (max-width: 830px) {
 
-  .footer-list {
+  footer .list {
     width: 50%;
   }
 
   .logo {
-    padding-top: 0.25em;  
+    padding-top: 0.25em;
     padding-left: 0.25em;
-  } 
+  }
 
   header {
     justify-content: space-between;
   }
 
-  .mainnav-list {
+  .nav-menu .list {
     display: none;
   }
 
-  .loginicon {
+  .login-nav-item {
     display: none;
   }
 
-  .sidebar-div {
+  .sidebar {
     display: flex;
     width: 320px;
     justify-content: flex-end;
   }
 
-  .sidebar-list {
+  #sidebar-menu .list {
     margin-left: 1em;
     margin-top: 3em;
     display: flex;
@@ -109,13 +109,13 @@ footer {
     font-size: 1.3rem;
   }
 
-  .sidebar-list li {
+  #sidebar-menu .list li {
     margin-bottom: 1em;
   }
 
-  .sidebar-nav {
+  #sidebar-menu {
     width: 230px;
-    position: absolute; 
+    position: absolute;
     z-index: -1;
     right: 0px;
     height: 15rem;
@@ -125,11 +125,11 @@ footer {
     box-shadow: 2px 0 4px rgba(0,0,0,0.5);
   }
 
-  #sidebar-toggle.collapsed {
+  #sidebar-menu.collapsed {
     right: -230px;
   }
 
-  header button {
+  header .sidebar button {
     display: block;
     position: fixed;
     width: 20px;
@@ -145,7 +145,7 @@ footer {
 
 @media (max-width: 600px) {
 
-  .footer-list {
+  footer .list {
     width: 65%;
   }
 }
