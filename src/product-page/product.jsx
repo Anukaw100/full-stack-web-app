@@ -9,7 +9,7 @@ class Uploader extends React.Component {
   constructor(props) {
     super(props);
     this.fileInput = React.createRef();
-    this.state = [{ fileURL: '' }];  // TODO Add default image.
+    this.state = { fileURL: '' };  // TODO Add default image.
   }
 
   readFileAndURL(event) {
@@ -22,25 +22,30 @@ class Uploader extends React.Component {
 
   render() {
     return (
-      <form>
-        <input
-          type="file"
-          ref={this.fileInput}
-          accept="image/*"
-          onChange={event => this.readFileAndURL(event)}
-          style={{ display: 'none' }}
-        />
-        <img
-          onClick={() => this.fileInput.current.click()}
-          onDrop={event => this.readFileAndURL(event.dataTransfer.files[0])}
-          src={this.state.fileURL}
-          height="300"
-          width="400"
-          alt="Click/Drag to upload image"
-        />
-        <br />  {/* FIXME <br /> is bad practice */}
-        <button type="submit">Find parking spaces</button>  {/* FIXME */}
-      </form>
+      <main className="container">
+        <h1>Try our product</h1>
+        <p>Upload an image of a parking lot here to see a labelled image of
+            all the vacant and occupied parking spaces.
+        </p>
+        <form>
+          <input
+            type="file"
+            ref={this.fileInput}
+            accept="image/*"
+            onChange={event => this.readFileAndURL(event)}
+            style={{ display: 'none' }}
+          />
+          <img
+            onClick={() => this.fileInput.current.click()}
+            onDrop={event => this.readFileAndURL(event.dataTransfer.files[0])}
+            src={this.state.fileURL}
+            height="300"
+            width="400"
+            alt="Click/Drag to upload image"
+          />
+          <button type="submit">Find parking spaces</button>  {/* FIXME */}
+        </form>
+      </main>
     );
   }
 }
@@ -50,14 +55,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <main> {/*add a class=main here for universal css padding*/}
-          <h1>Try our product</h1>
-          <div>
-            Upload an image of a parking lot here to see a labelled image of
-            all the vacant and occupied parking spaces.
-          </div>
-          <Uploader />
-        </main>
+        <Uploader />
         <Footer />
       </div>
     );

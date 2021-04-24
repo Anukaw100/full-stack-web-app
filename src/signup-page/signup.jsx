@@ -9,24 +9,23 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
   }
-  
-  // TODO Add required attributes to <input> fields.
-  render() {
-    return (
-      <div className="main">
-        <h1>Sign Up</h1>
-        <form>
-          <label htmlFor="name">Name:</label>
-          <input type="text" name="name" />
-          <label htmlFor="email">Email:</label>
-          <input type="email" name="email" />
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" />
-          <button type="button">Submit</button>  {/* FIXME */}
-        </form>
-        <span>OR</span>
-        <a href="/login/" className="switchform">Login</a>
-      </div>
+
+render() {
+   return (
+     <div className="main">
+       <h1>Sign Up</h1>
+       <form>
+         <label htmlFor="name">Name:</label>
+         <input type="text" name="name" required/>
+         <label htmlFor="email">Email:</label>
+         <input type="email" name="email" required/>
+         <label htmlFor="password">Password:</label>
+         <input type="password" name="password" required/>
+         <button type="submit">Submit</button>
+       </form>
+       <span>OR</span>
+       <a href="/login/" className="switchform">Login</a>
+     </div>
     );
   }
 }
