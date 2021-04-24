@@ -1,10 +1,10 @@
 header {
+  background-color: lightgray;
   display: flex;
   height: 10%;
+  justify-content: space-between;
   position: sticky;
   top: 0;
-  background-color: lightgray;
-  justify-content: space-between;
 }
 
 header a, footer a {
@@ -13,8 +13,8 @@ header a, footer a {
 }
 
 .logo {
-  padding-top: 0.25em;
   padding-left: 0.25em;
+  padding-top: 0.25em;
   width: 8%;
 }
 
@@ -23,29 +23,15 @@ header a, footer a {
 }
 
 .nav-menu {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
   font-size: 2rem;
+  justify-content: space-between;
   width: 100%;
 }
 
 .nav-menu .list {
   display: flex;
-  list-style: none;
-  margin: 0;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-}
-
-footer .list {
-  width: 40%;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
   list-style: none;
   margin: 0;
 }
@@ -59,88 +45,87 @@ footer .list {
   padding-right: 0.5em;
 }
 
-header .sidebar button, #sidebar-menu {
+.sidebar button, #sidebar-menu {
   display: none;
 }
 
 footer {
+  display: flex;
   font-size: 18px;
+  justify-content: center;
+  margin-top: 5em;
   text-align: center;
   width: 100%;
-  margin-top: 5em;
+}
+
+footer .list {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 40%;
 }
 
 @media (max-width: 830px) {
 
-  footer .list {
-    width: 50%;
-  }
-
-  .logo {
-    padding-top: 0.25em;
-    padding-left: 0.25em;
-  }
-
-  header {
-    justify-content: space-between;
-  }
-
-  .nav-menu .list {
-    display: none;
-  }
-
-  .login-nav-item {
+  .nav-menu .list, .login-nav-item {
     display: none;
   }
 
   .sidebar {
     display: flex;
-    width: 320px;
     justify-content: flex-end;
+    width: 320px;
   }
 
-  #sidebar-menu .list {
-    margin-left: 1em;
-    margin-top: 3em;
-    display: flex;
-    padding: 0;
-    flex-direction: column;
-    list-style: none;
-    font-size: 1.3rem;
-  }
-
-  #sidebar-menu .list li {
-    margin-bottom: 1em;
+  .sidebar button {
+    background: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    margin: 10px;
+    outline: none;
+    position: fixed;
+    width: 20px;
   }
 
   #sidebar-menu {
-    width: 230px;
-    position: absolute;
-    z-index: -1;
-    right: 0px;
-    height: 15rem;
-    transition: 1s;
-    display:block;
-    background:white;
+    background: white;
     box-shadow: 2px 0 4px rgba(0,0,0,0.5);
+    display: block;
+    height: 15rem;
+    position: absolute;
+    right: 0px;
+    transition: 1s;
+    width: 230px;
+    z-index: -1;
   }
 
   #sidebar-menu.collapsed {
     right: -230px;
   }
 
-  header .sidebar button {
-    display: block;
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border:none;
-    outline:none;
-    background: black;
-    margin: 10px;
-    cursor:pointer;
+  #sidebar-menu .list {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    list-style: none;
+    margin-left: 1em;
+    margin-top: 3em;
+    padding: 0;
   }
+
+  #sidebar-menu .list li {
+    margin-bottom: 1em;
+  }
+
+  footer .list {
+    width: 50%;
+  }
+
 }
 
 @media (max-width: 600px) {
@@ -148,4 +133,5 @@ footer {
   footer .list {
     width: 65%;
   }
+
 }
