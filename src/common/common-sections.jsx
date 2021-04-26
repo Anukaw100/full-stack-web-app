@@ -1,10 +1,8 @@
 import React from "react";
-
-import "Common/common-sections.css";
 import Logo from "Images/logo.gif";
+import "Common/common-sections.css";
 
 export class Header extends React.Component {
-
   constructor(props) {
     super(props)
   }

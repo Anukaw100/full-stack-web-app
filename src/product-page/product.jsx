@@ -1,15 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
-import "./product.css";
+// TODO Add CSS for product-page.
 
 class Uploader extends React.Component {
   constructor(props) {
     super(props);
     this.fileInput = React.createRef();
-    this.state = [{ fileURL: '' }];  // TODO Add default image.
+    this.state = [{ fileURL: '' }];  // TODO Add image or CSS for placeholder.
   }
 
   readFileAndURL(event) {
@@ -30,12 +29,11 @@ class Uploader extends React.Component {
           onChange={event => this.readFileAndURL(event)}
           style={{ display: 'none' }}
         />
+        {/* FIXME Set CSS style */}
         <img
           onClick={() => this.fileInput.current.click()}
           onDrop={event => this.readFileAndURL(event.dataTransfer.files[0])}
           src={this.state.fileURL}
-          height="300"
-          width="400"
           alt="Click/Drag to upload image"
         />
         <br />  {/* FIXME <br /> is bad practice */}
@@ -50,7 +48,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <main> {/*add a class=main here for universal css padding*/}
+        <main>
           <h1>Try our product</h1>
           <div>
             Upload an image of a parking lot here to see a labelled image of
