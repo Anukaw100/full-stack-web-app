@@ -14,8 +14,8 @@ render() {
    return (
      <div className="main">
        <h1>Sign Up</h1>
-       <form>
-         <label htmlFor="name">Name:</label>
+       <form action="/signup" method="post">
+         <label htmlFor="name" required>Name:</label>
          <input type="text" name="name" required/>
          <label htmlFor="email">Email:</label>
          <input type="email" name="email" required/>

@@ -14,7 +14,7 @@ render() {
    return (
      <div className="main">
        <h1>Login</h1>
-       <form>
+       <form action="/login" method="post">
          <label htmlFor="email">Email:</label>
          <input type="email" name="email" required/>
          <label htmlFor="password">Password:</label>
