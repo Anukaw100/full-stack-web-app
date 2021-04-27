@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
 import "./product.css";
@@ -9,7 +8,7 @@ class Uploader extends React.Component {
   constructor(props) {
     super(props);
     this.fileInput = React.createRef();
-    this.state = { fileURL: '' };  // TODO Add default image.
+    this.state = { fileURL: '' };  // TODO Add default image or placeholder CSS.
   }
 
   readFileAndURL(event) {
@@ -22,10 +21,11 @@ class Uploader extends React.Component {
 
   render() {
     return (
-      <main className="container">
-        <h1>Try our product</h1>
-        <p>Upload an image of a parking lot here to see a labelled image of
-            all the vacant and occupied parking spaces.
+      <div className="container">
+        <h1>Try Our Product</h1>
+        <p>
+          Upload an image of a parking lot here to see a labelled image of all
+          the vacant and occupied parking spaces.
         </p>
         <form>
           <input
@@ -35,17 +35,16 @@ class Uploader extends React.Component {
             onChange={event => this.readFileAndURL(event)}
             style={{ display: 'none' }}
           />
+          {/* FIXME Add CSS style for image. */}
           <img
+            src={this.state.fileURL}
             onClick={() => this.fileInput.current.click()}
             onDrop={event => this.readFileAndURL(event.dataTransfer.files[0])}
-            src={this.state.fileURL}
-            height="300"
-            width="400"
-            alt="Click/Drag to upload image"
+            alt="Click line or drag image to upload."
           />
-          <button type="submit">Find parking spaces</button>  {/* FIXME */}
+          <button type="submit">Find Parking Spaces</button>  {/* FIXME Add action. */}
         </form>
-      </main>
+      </div>
     );
   }
 }
@@ -55,7 +54,9 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Uploader />
+        <main>
+          <Uploader />
+        </main>
         <Footer />
       </div>
     );

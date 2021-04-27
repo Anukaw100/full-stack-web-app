@@ -1,63 +1,64 @@
-.mainnav-list, .loginicon {
-  display:none;
-}
-
-.main{
-  margin: 3em auto 0 auto;
-  text-align: center;
-  width: 35%;
-  border: 3px solid black;
-  padding: 0;
-}
-
-input, span {
-  display: block;
-  font-size: 1rem;
-  width: 60%;
-  margin: 0 auto 2em auto;
-}
-
-button {
-  margin: 0 auto 3em auto;
-}
-
-.switchform {  
-  justify-content: center;
-  width: 40%;
-  background-color: #1c87c9;
-  border: none;
-  color: white;
-  padding: 0.5em;
-  text-align: center;
-  display: inline-block;
-  font-size: 1rem;
-  margin-bottom: 1em;
-}
-
-header button, .sidebar-nav {
+.nav-menu .list, .login-nav-item, .sidebar button, #sidebar-menu {
+  /* Elements in "Common/common-sections.jsx". */
   display: none;
 }
 
+main {
+  border: 3px solid black;
+  margin: 3em auto 0 auto;
+  padding: 0;
+  text-align: center;
+  width: 35%;
+}
+
+main input, main span {
+  display: block;
+  font-size: 1rem;
+  margin: 0 auto 2em auto;
+  width: 60%;
+}
+
+main button {
+  margin: 0 auto 3em auto;
+}
+
+.switch-form {
+  background-color: #1c87c9;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: 1rem;
+  justify-content: center;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  text-align: center;
+  width: 40%;
+}
+
 @media (max-width: 830px) {
-  .main {
+
+  main {
     width: 50%;
   }
 
-  .switchform {
+  .switch-form {
     width: 45%;
   }
+
 }
 
 @media (max-width: 450px) {
-  .main {
+
+  main {
     width: 90%;
   }
 
-  input {
+  main input {
     width: 80%;
   }
 
-  .switchform {
+  .switch-form {
     width: 45%;
   }
+
 }
