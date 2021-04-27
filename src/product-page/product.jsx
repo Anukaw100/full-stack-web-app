@@ -36,6 +36,7 @@ class Uploader extends React.Component {
             style={{ display: 'none' }}
           />
           {/* FIXME Add CSS style for image. */}
+          {/* FIXME Fix drag-and-drop upload. */}
           <img
             src={this.state.fileURL}
             onClick={() => this.fileInput.current.click()}

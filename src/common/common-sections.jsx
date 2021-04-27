@@ -17,10 +17,12 @@ export class Header extends React.Component {
         <nav className="nav-menu">
           <a className="logo" href="/"><img src={Logo}/></a>
           <ol className="list">
+            {/* TODO Add <li> for homepage. */}
             <li><a href="/state-of-parking/">State of Parking</a></li>
             <li><a href="/why-ai/">Why A.I?</a></li>
             <li><a href="/product/">Product</a></li>
           </ol>
+          {/* FIXME Change span dynamically in login pages to back button. */}
           <span className="login-nav-item"><a href="/login/">Login</a></span>
         </nav>
 
