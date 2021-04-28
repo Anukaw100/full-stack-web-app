@@ -5,12 +5,7 @@ import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
 import "Common/authenticate.css";
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-render() {
+function LoginForm(){
    return (
      <div className="main">
        <h1>Login</h1>
@@ -25,11 +20,9 @@ render() {
        <a href="/signup/" className="switchform">Create Account</a>
      </div>
     );
-  }
 }
 
-class App extends React.Component {
-  render() {
+function App() {
     return(
       <div>
         <Header />
@@ -37,7 +30,6 @@ class App extends React.Component {
         <Footer />
       </div>
     );
-  }
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));

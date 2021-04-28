@@ -6,8 +6,7 @@ import "Common/universal.css";
 
 import Text from "Images/artificial-intelligence.jpg";
 
-class Info extends React.Component {
-  render() {
+function Info() {
     return (
       <main>
         <div className="container">
@@ -80,11 +79,9 @@ class Info extends React.Component {
         </div>
       </main>
     );
-  }
-};
+}
 
-class App extends React.Component {
-  render() {
+function App() {
     return (
       <div>
         <Header />
@@ -93,6 +90,5 @@ class App extends React.Component {
       </div>
     );
   }
-}
 
 ReactDOM.render(<App />, document.getElementById("root"));

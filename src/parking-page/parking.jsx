@@ -22,8 +22,7 @@ import Sample from "Images/busy-parking-lot.jpg";
 //   }
 // };
 
-class Info extends React.Component {
-  render() {
+function Info() {
     return (
       <main>
         <div className="container">
@@ -98,11 +97,9 @@ This is done using a field in computer vision technology called object detection
         </div>
       </main>
     );
-  }
-};
+}
 
-class App extends React.Component {
-  render() {
+function App() {
     return (
       <div>
         <Header />
@@ -111,6 +108,5 @@ class App extends React.Component {
       </div>
     );
   }
-}
 
 ReactDOM.render(<App />, document.getElementById("root"));
