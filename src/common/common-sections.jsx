@@ -1,7 +1,6 @@
 import React from "react";
-
-import "Common/common-sections.css";
 import Logo from "Images/logo.gif";
+import "Common/common-sections.css";
 
 export class Header extends React.Component {
   constructor(props) {
@@ -9,28 +8,28 @@ export class Header extends React.Component {
   }
 
   openSideBar() {
-    document.getElementById('sidebar-toggle').classList.toggle('collapsed')
+    document.getElementById('sidebar-menu').classList.toggle('collapsed')
   }
 
   render() {
     return (
-      <header>  
-        <nav className="mainnav">
-            <a className="logo" href="/"> 
-              <img src={Logo}/>
-            </a>
-          <ol className="mainnav-list">
+      <header>
+        <nav className="nav-menu">
+          <a className="logo" href="/"><img src={Logo}/></a>
+          <ol className="list">
+            {/* TODO Add <li> for homepage. */}
             <li><a href="/state-of-parking/">State of Parking</a></li>
             <li><a href="/why-ai/">Why A.I?</a></li>
             <li><a href="/product/">Product</a></li>
           </ol>
-          <li className="loginicon"><a href="/login/">Login</a></li>
+          {/* FIXME Change span dynamically in login pages to back button. */}
+          <span className="login-nav-item"><a href="/login/">Login</a></span>
         </nav>
-        
-        <div className="sidebar-div">
-          <button title="Toggle sidebar" onClick={this.openSideBar}></button>
-          <nav id="sidebar-toggle" className="sidebar-nav collapsed">
-            <ol className="sidebar-list">
+
+        <div className="sidebar">
+          <button title="Toggle Sidebar" onClick={this.openSideBar}></button>
+          <nav id="sidebar-menu" className="collapsed">
+            <ol className="list">
               <li><a href="/state-of-parking/">State of Parking</a></li>
               <li><a href="/why-ai/">Why A.I?</a></li>
               <li><a href="/product/">Product</a></li>
@@ -38,7 +37,6 @@ export class Header extends React.Component {
             </ol>
           </nav>
         </div>
-        
       </header>
     );
   }
@@ -48,9 +46,13 @@ export class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <ol className="footer-list">
-          <li><a href="https://github.com/Anukaw100/parking-detection-ml-website">GitHub</a></li>
-          <li>Contact Us</li>
+        <ol className="list">
+          <li>
+            <a href="https://github.com/Anukaw100/parking-detection-ml-website">
+              GitHub
+            </a>
+          </li>
+          <li><a href="/contact/">Contact Us</a></li>
         </ol>
       </footer>
     );

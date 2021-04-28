@@ -1,5 +1,4 @@
-button {
-  margin: auto;
-  display:block;
-  margin-top: 1em;
+main button {
+  display: block;
+  margin: 1em auto auto auto;  /* Clockwise: top, right, bottom, left. */
 }
