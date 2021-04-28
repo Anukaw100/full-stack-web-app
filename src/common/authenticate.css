@@ -3,6 +3,10 @@
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .form-style {
   border: 3px solid black;
   margin: 3em auto 0 auto;
