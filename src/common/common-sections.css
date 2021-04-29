@@ -89,6 +89,7 @@ footer .list {
     border-radius: 50%;
     cursor: pointer;
     display: block;
+    /* FIXME Make height relative to suit header. */
     height: 20px;
     margin: 10px;
     outline: none;
@@ -100,7 +101,6 @@ footer .list {
     background: white;
     box-shadow: 2px 0 4px rgba(0,0,0,0.5);
     display: block;
-    height: 15rem;
     position: absolute;
     right: 0px;
     transition: 1s;

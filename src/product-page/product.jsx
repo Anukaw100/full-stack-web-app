@@ -1,67 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
 import "./product.css";
 
-class Uploader extends React.Component {
-  constructor(props) {
-    super(props);
-    this.fileInput = React.createRef();
-    this.state = { fileURL: '' };  // TODO Add default image or placeholder CSS.
-  }
+function Uploader(props) {
+  // TODO Add default image or placeholder CSS.
+  let [fileURL, setFileURL] = useState('');
 
-  readFileAndURL(event) {
-    // [Help by Adam Lusk](https://vadlusk.medium.com/a-newbs-guide-working-with-user-uploaded-image-files-with-react-23795c6da346)
+  /* [Help by Adam Lusk](https://vadlusk.medium.com/a-newbs-guide-working-with-
+     user-uploaded-image-files-with-react-23795c6da346) */
+  const fileInput = React.createRef();
+  const readFileAndURL = (event) => {
     event.preventDefault();
     const fileReader = new FileReader();
-    fileReader.onload = () => { this.setState({ fileURL: fileReader.result })};
+    fileReader.onload = () => { setFileURL(fileReader.result) };
     fileReader.readAsDataURL(event.target.files[0]);
   }
 
-  render() {
-    return (
-      <div className="container">
-        <h1>Try Our Product</h1>
-        <p>
-          Upload an image of a parking lot here to see a labelled image of all
-          the vacant and occupied parking spaces.
-        </p>
-        <form>
-          <input
-            type="file"
-            ref={this.fileInput}
-            accept="image/*"
-            onChange={event => this.readFileAndURL(event)}
-            style={{ display: 'none' }}
-          />
-          {/* FIXME Add CSS style for image. */}
-          {/* FIXME Fix drag-and-drop upload. */}
-          <img
-            src={this.state.fileURL}
-            onClick={() => this.fileInput.current.click()}
-            onDrop={event => this.readFileAndURL(event.dataTransfer.files[0])}
-            alt="Click line or drag image to upload."
-          />
-          <button type="submit">Find Parking Spaces</button>  {/* FIXME Add action. */}
-        </form>
-      </div>
-    );
-  }
+  return (
+    <main className="container">
+      <h1>Try Our Product</h1>
+      <p>
+        Upload an image of a parking lot here to see a labelled image of all the
+        vacant and occupied parking spaces.
+      </p>
+      <form>
+        <input
+          type="file"
+          ref={fileInput}
+          accept="image/*"
+          onChange={event => readFileAndURL(event)}
+          style={{ display: 'none' }}
+        />
+        {/* FIXME Add CSS style for image. Fix drag-and-drop upload. */}
+        <img
+          src={fileURL}
+          onClick={() => fileInput.current.click()}
+          onDrop={event => readFileAndURL(event.dataTransfer.files[0])}
+          alt="Click line or drag image to upload."
+        />
+        {/* FIXME Add action and submit-handler. */}
+        <button type="submit">Find Parking Spaces</button>
+      </form>
+    </main>
+  );
 }
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <main>
-          <Uploader />
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+function App(props) {
+  return (
+    <div>
+      <Header />
+      <Uploader />
+      <Footer />
+    </div>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
