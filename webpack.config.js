@@ -7,7 +7,8 @@ import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
-const __dirname = dirname(fileURLToPath(import.meta.url))  // required in ES6 modules.
+// required in ES6 modules.
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default {
   entry: {
@@ -17,6 +18,7 @@ export default {
     product: resolve(__dirname, "src", "product-page", "product.jsx"),
     login: resolve(__dirname, "src", "login-page", "login.jsx"),
     signup: resolve(__dirname, "src", "signup-page", "signup.jsx"),
+    account: resolve(__dirname, "src", "login-page", "account.jsx"),
   },
   // `publicPath' and `clean' options removed.
   // `publicPath' removed for debugging. `clean' option until files reordered.
@@ -104,6 +106,12 @@ export default {
       title: "Signup - Parking Space Detector",
       inject: "body",
       chunks: ["signup"],
+    }),new HtmlWebpackPlugin({
+      filename: resolve(__dirname, "dist", "account", "index.html"),
+      template: resolve(__dirname, "views", "index.html"),
+      title: "Account - Parking Space Detector",
+      inject: "body",
+      chunks: ["account"],
     }),
   ],
 };

@@ -1,0 +1,20 @@
+.alert {
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+  background: lightcoral;
+}
+
+p {
+  margin-left: auto;
+}
+
+.close {
+  color: white;
+  cursor: pointer;
+  margin-top: 0.2em;
+  margin-left: auto;
+  padding-right: 0.2em;
+}

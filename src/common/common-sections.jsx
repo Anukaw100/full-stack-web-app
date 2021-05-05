@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "Images/logo.gif";
 import "Common/common-sections.css";
 
-export function Header(props) {
+export function Header() {
   const openSideBar = () => {
     document.getElementById('sidebar-menu').classList.toggle('collapsed');
   }
@@ -12,7 +12,6 @@ export function Header(props) {
       <nav className="nav-menu">
         <a className="logo" href="/"><img src={Logo}/></a>
         <ol className="list">
-          <li><a href="/">Home</a></li>
           <li><a href="/state-of-parking/">State of Parking</a></li>
           <li><a href="/why-ai/">Why A.I?</a></li>
           <li><a href="/product/">Product</a></li>
@@ -25,7 +24,6 @@ export function Header(props) {
         <button title="Toggle Sidebar" onClick={openSideBar}></button>
         <nav id="sidebar-menu" className="collapsed">
           <ol className="list">
-            <li><a href="/">Home</a></li>
             <li><a href="/state-of-parking/">State of Parking</a></li>
             <li><a href="/why-ai/">Why A.I?</a></li>
             <li><a href="/product/">Product</a></li>
@@ -37,7 +35,7 @@ export function Header(props) {
   );
 }
 
-export function Footer(props) {
+export function Footer() {
   return (
     <footer>
       <ol className="list">

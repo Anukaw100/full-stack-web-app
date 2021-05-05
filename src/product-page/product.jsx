@@ -49,11 +49,11 @@ function Uploader(props) {
 
 function App(props) {
   return (
-    <div>
+    <React.Fragment>
       <Header />
       <Uploader />
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }
 

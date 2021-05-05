@@ -4,7 +4,7 @@ import { Header, Footer } from "Common/common-sections.jsx";
 import Cover from "Images/ai-cover.jpg";
 import "Common/universal.css";
 
-function Info(props) {
+function Info() {
   return (
     <main className="container">
       <h1>AI For Parking</h1>
@@ -44,13 +44,13 @@ function Info(props) {
   );
 }
 
-function App(props) {
+function App() {
   return (
-    <div>
+    <React.Fragment>
       <Header />
       <Info />
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }
 

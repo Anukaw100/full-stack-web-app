@@ -1,4 +1,4 @@
 {
-  "watch": [ "app.js", "webpack.config.js" ],
+  "watch": [ "server.js", "webpack.config.js", "database.js" ],
   "ext": "js"
 }
