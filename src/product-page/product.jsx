@@ -1,57 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
 import "./product.css";
 
+/* [Help from Chandra Panta Chhetri](https://dev.to/chandrapantachhetri/
+   responsive-react-file-upload-component-with-drag-and-drop-4ef8)
+ */
 function Uploader(props) {
-  // TODO Add default image or placeholder CSS.
-  let [fileURL, setFileURL] = useState('');
+  const fileInputRef = useRef(null);
+  const [fileURL, setFileURL] = useState("");
 
-  /* [Help by Adam Lusk](https://vadlusk.medium.com/a-newbs-guide-working-with-
-     user-uploaded-image-files-with-react-23795c6da346) */
-  const fileInput = React.createRef();
-  const readFileAndURL = (event) => {
+  const handleUploadButtonClick = (event) => {
+    event.preventDefault();
+    fileInputRef.current.click();
+  }
+
+  const handleImageUpload = (event) => {
     event.preventDefault();
     const fileReader = new FileReader();
-    fileReader.onload = () => { setFileURL(fileReader.result) };
+    fileReader.onload = (e) => {
+      console.log(e.target.result);
+      setFileURL(e.target.result);
+    }
     fileReader.readAsDataURL(event.target.files[0]);
   }
 
   return (
-    <main className="container">
-      <h1>Try Our Product</h1>
-      <p>
-        Upload an image of a parking lot here to see a labelled image of all the
-        vacant and occupied parking spaces.
-      </p>
-      <form>
+    <main>
+      <section className="upload-container">
+        <p>Drag and drop your image anywhere or</p>
+        <button type="button" onClick={handleUploadButtonClick}>
+          <span>Upload an image</span>
+        </button>
         <input
           type="file"
-          ref={fileInput}
+          ref={fileInputRef}
+          onChange={handleImageUpload}
+          title=""
+          value=""
           accept="image/*"
-          onChange={event => readFileAndURL(event)}
-          style={{ display: 'none' }}
         />
-        {/* FIXME Add CSS style for image. Fix drag-and-drop upload. */}
-        <img
-          src={fileURL}
-          onClick={() => fileInput.current.click()}
-          onDrop={event => readFileAndURL(event.dataTransfer.files[0])}
-          alt="Click line or drag image to upload."
-        />
-        {/* FIXME Add action and submit-handler. */}
-        <button type="submit">Find Parking Spaces</button>
-      </form>
+      </section>
+
+      <article className="preview-container">
+        {props.children}  {/** to add the textual information. */}
+        <section>
+          <div>
+            {fileURL && <img src={fileURL} alt="A parking lot image" />}
+          </div>
+        </section>
+      </article>
     </main>
   );
 }
 
-function App(props) {
+function App() {
   return (
     <div>
       <Header />
-      <Uploader />
+      <Uploader>
+        <h1>Try Our Product</h1>
+        <p>
+          Upload an image of a parking lot here to see a labelled image of all
+          the vacant and occupied parking spaces.
+        </p>
+      </Uploader>
       <Footer />
     </div>
   );
