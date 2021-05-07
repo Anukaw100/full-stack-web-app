@@ -1,12 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/common-sections.jsx";
-import "Common/universal.css";
+import "./home.css"
 
 function Info() {
   return (
     <main className="container">
-      <h1>TODO <em>Add Home Page Information</em></h1>
+      <div className="card">
+        <div className="card-content">
+          <h2 className="card-title" >The Future of Parking</h2>
+          <p className="card-body">This card is going to be truly awesome and show case our amazing
+            skills in CSS.
+          </p>
+          <a href="/product" className="button">Learn More</a>
+        </div>
+      </div>
     </main>
   );
 }
