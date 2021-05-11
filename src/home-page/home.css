@@ -2,6 +2,7 @@
   --clr-neutral-900: hsl(207, 19%, 9%);
   --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-accent-400: hsl(142, 90%, 61%);
+  --clr-accent-500: hsl(192, 24%, 24%);
 }
 
 *,
@@ -11,19 +12,40 @@
 }
 
 body {
-  background-color: var(--clr-neutral-900);
   margin: 0;
 }
 
-.container {
+section {
+  background-color: var(--clr-neutral-900);
+  height: calc(100vh - 4rem);
   display: flex;
-  justify-content: center;
-  padding-top: 3%;
+  justify-content: space-evenly;
+  align-items: center;
   font-family: sans-serif;
+  color:white
+}
+
+.light-section {
+  background-color: var(--clr-accent-500);
+}
+
+.product-info, .ai-info, .parking-info {
+  width: 40%
+}
+
+.product-card {
+  background-image: url("Images/product-card.jpg");
+}
+
+.ai-card {
+  background-image: url("Images/parking-card.jpg");
+}
+
+.parking-card {
+  background-image: url("Images/ai-card.jpg");
 }
 
 .card {
-  background-image: url("Images/card-background.jpg");
   background-size: cover;
   color: var(--clr-neutral-100);
   padding: 10rem 0 0;
@@ -45,7 +67,7 @@ body {
     hsl(20 0% 0% / 0.3) 20%,
     hsl(0 0% 0% / 1)
   );
-  transform: translateY(65%);
+  transform: translateY(60%);
   transition: transform 500ms ease;
 }
 

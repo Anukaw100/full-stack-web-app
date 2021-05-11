@@ -1,7 +1,8 @@
 header {
   background-color: lightgray;
+  height: 4rem;
+  z-index: 1;
   display: flex;
-  min-height: 3em;
   justify-content: space-between;
   position: sticky;
   top: 0;
