@@ -4,10 +4,18 @@ import ReactDOM from "react-dom";
 function Account() {
 
   return(
-    <React.Fragment>
+    <div>
+      <h1>{sessionStorage.getItem("Name")}'s Account</h1>
       <a href="/logout">Log Out</a>
-    </React.Fragment>
+    </div>
+  )
+}
 
+function App() {
+  return(
+    <React.Fragment>
+      <Account />
+    </React.Fragment>
   )
 }
 

@@ -69,7 +69,7 @@ app.get("/login", unAuth)
 app.get("/signup", unAuth)
 
 app.post("/login", passport.authenticate("local"), (req, res, next) => {
-  res.status(200).send(req.user.email);
+  res.status(200).send(req.user);
 });
 
 app.post("/signup", unAuth, (req, res, next) => {
@@ -99,9 +99,10 @@ app.post("/signup", unAuth, (req, res, next) => {
         if(err) {
           return(next(err))
         }
-        return res.redirect("/account")
+        res.status(200).send(req.user);
+        // return res.redirect("/account")
         // OR return res.status(200).send()
-        // but res.redirect("account") auto sends a response 200 status anyway.
+        // res.redirect("account") auto sends a response 200 status.
       })
 
     } catch (err) {

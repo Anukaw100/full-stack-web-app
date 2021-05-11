@@ -43,6 +43,7 @@ function SignUpForm() {
       })
 
       if (response.status == 200) {
+        sessionStorage.setItem("Name", response.data.name)
         window.location = "/account"
       }
 
