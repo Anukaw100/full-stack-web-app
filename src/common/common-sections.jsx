@@ -16,10 +16,8 @@ export function Header() {
           <li><a href="/why-ai/">Why A.I?</a></li>
           <li><a href="/product/">Product</a></li>
         </ol>
-        {/* FIXME Change span dynamically in login pages to back button. */}
-        <span className="login-nav-item"><a href="/login/">Login</a></span>
+        <span className="login-nav-item"><a id="loginlink" href="/account/" >Account</a></span>
       </nav>
-
       <div className="sidebar">
         <button title="Toggle Sidebar" onClick={openSideBar}></button>
         <nav id="sidebar-menu" className="collapsed">
