@@ -1,8 +1,13 @@
 :root {
+  /* Variables */
   --clr-neutral-900: hsl(207, 19%, 9%);
   --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-accent-400: hsl(142, 90%, 61%);
   --clr-accent-500: hsl(192, 24%, 24%);
+}
+
+#root {
+  position: relative;
 }
 
 *,
@@ -33,6 +38,10 @@ section {
   width: 40%
 }
 
+.parking-info {
+  margin-top: -5%;
+}
+
 .product-card {
   background-image: url("Images/product-card.jpg");
 }
@@ -42,6 +51,7 @@ section {
 }
 
 .parking-card {
+  margin-top: -5%;
   background-image: url("Images/ai-card.jpg");
 }
 
@@ -121,4 +131,13 @@ section {
 .button:hover,
 .button:focus {
   background-color: var(--clr-neutral-100);
+}
+
+footer a {
+  color: white;
+}
+
+footer {
+  position: absolute;
+  bottom: 1%;
 }
