@@ -44,7 +44,7 @@ function Uploader(props) {
       </section>
 
       <article className="preview-container">
-        {props.children}  {/** to add the textual information. */}
+        {!fileURL && props.children}  {/** to add the textual information. */}
         <section>
           <div>
             {fileURL && <img src={fileURL} alt="A parking lot image" />}
