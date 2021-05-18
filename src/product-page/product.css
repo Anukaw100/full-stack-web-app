@@ -1,4 +1,109 @@
-.container button {
+.upload-container {
+  align-items: center;
+  background-color: #ccc;
+  border: 0.25rem dotted #222;
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 1.5rem;
+  padding: 3.5rem 2rem;
+  position: relative;
+}
+
+.upload-container p {
+  font-weight: bold;
+  letter-spacing: 0.11rem;
+  margin-top: 0;
+}
+
+.upload-container button {
+  align-items: center;
+  background-color: transparent;
+  border: 0.2rem solid #222;
+  box-sizing: border-box;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  justify-content: center;
+  line-height: 1;
+  max-width: 20rem;
+  outline: none;
+  overflow: hidden;
+  padding: 1.1rem 2.8rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: all .5s;
+  width: 45%;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 500px) {
+  .upload-container button {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .upload-container button {
+    width: 100%;
+  }
+}
+
+/* [CSS Background Transition Help by Dynamic Drive](http://blog.dynamicdrive
+   .com/popular-css-button-hover-effects-explained/)
+ */
+.upload-container button::before, .upload-container button::after {
+  background: #222;
+  bottom: 0;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate3d(-100%,0,0);
+  transition: all .5s;
+  z-index: -1;
+}
+
+.upload-button button::before {
+  background-color: transparent;
+  transform: translate3d(0,0,0);
+  z-index: -2;
+}
+
+.upload-container button:hover {
+  color: #fff;
+}
+
+.upload-container button:hover::after {
+  transform: translate3d(0,0,0);
+  transition: all .5s;
+}
+
+.upload-container button:disabled {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.upload-container input {
+  bottom: 0;
   display: block;
-  margin: 1em auto auto auto;  /* Clockwise: top, right, bottom, left. */
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.preview-container {
+  margin-bottom: 1.5rem;
+  padding: 0 0.75rem;
+}
+
+.preview-container img {
+  height: 100%;
+  width: 100%;
 }
