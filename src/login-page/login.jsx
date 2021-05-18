@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import axios from "axios";
 import Bus from 'Common/bus.js';
 import { FlashMessage } from 'Common/flash-message.jsx'
 import { Header, Footer } from "Common/common-sections.jsx";
@@ -28,28 +27,27 @@ function LoginForm() {
     try {
       e.preventDefault();
 
-      const params = new URLSearchParams();
-      params.append("email", email);
-      params.append("password", password);
-      axios.defaults.withCredentials = true;
-      const response = await axios({
-        method: 'post',
-        url: '/login',
-        data: params,
-        withCredentials: true,
-        credentials: "same-origin"
-
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
       })
 
       if (response.status == 200) {
-        sessionStorage.setItem("Name", response.data.name)
+        const user = await response.json()
+        sessionStorage.setItem("Name", user.name)
         window.location = "/account"
       }
 
-    } catch (err) {
-      if (err.response.status == 401) {
+      if (response.status == 401) {
         flash("Invalid credentials")
       }
+
+    } catch (err) {
+      throw err;
     }
   }
 

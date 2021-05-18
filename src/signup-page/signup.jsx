@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Bus from 'Common/bus.js';
-import axios from "axios";
 import { Header, Footer } from "Common/common-sections.jsx";
 import { FlashMessage } from 'Common/flash-message.jsx'
 import "Common/universal.css";
@@ -32,26 +31,27 @@ function SignUpForm() {
     try {
       e.preventDefault();
 
-      const params = new URLSearchParams();
-      params.append("name", name);
-      params.append("email", email);
-      params.append("password", password);
-      const response = await axios({
-        method: 'post',
-        url: '/signup',
-        data: params
+      const response = await fetch("/signup", {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password
+        })
       })
 
       if (response.status == 200) {
-        sessionStorage.setItem("Name", response.data.name)
+        const user = await response.json()
+        sessionStorage.setItem("Name", user.name)
         window.location = "/account"
       }
 
-    } catch (err) {
-      if (err.response.status == 409) {
-        flash(err.response.data.message)
+      if (response.status == 409) {
+        flash((await response.json()).message)
       }
-    }
+
+    } catch (err) {}
   }
 
   return (

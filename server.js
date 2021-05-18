@@ -22,7 +22,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const app = express();
 
-app.use(express.urlencoded({extended : false}));
+app.use(express.json());
 
 // store session
 var sessionStore = new MongoDBStore({
