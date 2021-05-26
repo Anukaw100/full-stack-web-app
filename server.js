@@ -2,7 +2,7 @@ import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { createServer } from "http";
 import express from "express";
-import config from "./webpack.config.js";
+import config from "./webpack.config.cjs";
 import bcrypt, { compare } from "bcrypt";
 import session from "express-session";
 import { default as connectMongoDBSession} from 'connect-mongodb-session';

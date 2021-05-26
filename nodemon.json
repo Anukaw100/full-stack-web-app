@@ -1,7 +1,7 @@
 {
   "watch": [
     "server.js",
-    "webpack.config.js",
+    "webpack.config.cjs",
     "database.js",
     "passport.config.js",
     "babel.config.json",
