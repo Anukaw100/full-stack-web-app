@@ -9,7 +9,7 @@ import bcrypt, { compare } from "bcrypt";
 import session from "express-session";
 import { default as connectMongoDBSession} from 'connect-mongodb-session';
 import passport from "passport"
-import "./passport-config.js"
+import "./passport.config.js"
 import User, { dbURI, connectMongodb} from "./database.js"
 
 connectMongodb();

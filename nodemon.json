@@ -1,4 +1,11 @@
 {
-  "watch": [ "server.js", "webpack.config.js", "database.js" ],
+  "watch": [
+    "server.js",
+    "webpack.config.js",
+    "database.js",
+    "passport.config.js",
+    "babel.config.json",
+    "package.json"
+  ],
   "ext": "js"
 }
