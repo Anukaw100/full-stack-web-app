@@ -1,5 +1,3 @@
-import dotenv from "dotenv"
-dotenv.config()
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { createServer } from "http";

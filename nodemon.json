@@ -6,6 +6,5 @@
     "passport.config.js",
     "babel.config.json",
     "package.json"
-  ],
-  "ext": "js"
+  ]
 }

@@ -3,9 +3,8 @@
   "private": true,
   "description": "A personal project to boost our portfolios.",
   "scripts": {
-    "prestart": "webpack",
-    "start": "node server.js",
-    "nodemon": "nodemon server.js",
+    "start": "node -r dotenv/config server.js",
+    "nodemon": "nodemon -- -r dotenv/config server.js",
     "prettier": "prettier --check .",
     "eslint": "eslint \"**/*.{jsx,js}\"",
     "stylelint": "stylelint \"**/*.css\"",
