@@ -1,22 +1,27 @@
 import mongoose from "mongoose";
 
 export const dbURI = process.env.DB_STRING;
+
 const dbOptions = {
-  useNewUrlParser:true,
-  useUnifiedTopology: true
-}
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
 export const connectMongodb = async () => {
-  try{
-    await mongoose.connect(dbURI, dbOptions)
-  } catch(err) {
+  try {
+    await mongoose.connect(dbURI, dbOptions);
+  } catch (err) {
     throw err;
   }
-}
+};
 
-const user = new mongoose.Schema({
+const user = new mongoose.Schema(
+  {
     name: String,
     email: String,
-    password: String
-}, {timestamps: true});
+    password: String,
+  },
+  { timestamps: true }
+);
 
-export default mongoose.model("User", user)
+export default mongoose.model("User", user);
