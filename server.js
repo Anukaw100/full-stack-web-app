@@ -1,32 +1,26 @@
-import { dirname, resolve } from "path";
-import { fileURLToPath } from "url";
+import { resolve } from "path";
 import { createServer } from "http";
 import express from "express";
-import config from "./webpack.config.cjs";
-import bcrypt, { compare } from "bcrypt";
+import bcrypt from "bcrypt";
 import session from "express-session";
-import { default as connectMongoDBSession } from "connect-mongodb-session";
+import connectMongoDBSession from "connect-mongodb-session";
 import passport from "passport";
 import "./passport.config.js";
 import User, { dbURI, connectMongodb } from "./database.js";
+import config from "./webpack.config.cjs";
 
 connectMongodb();
 
-// store session in mongodb
+// Store session in MongoDB.
 const MongoDBStore = connectMongoDBSession(session);
-
-// eequired in ES6 modules.
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const sessionStore = new MongoDBStore({
+  uri: dbURI,
+  collection: "session",
+});
 
 const app = express();
 
 app.use(express.json());
-
-// store session
-var sessionStore = new MongoDBStore({
-  uri: dbURI,
-  collection: "session",
-});
 
 app.use(
   session({
@@ -39,50 +33,48 @@ app.use(
 
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
-    next();
-  } else {
-    res.redirect("/login");
+    return next();
   }
+  return res.redirect("/login");
 };
 
 const unAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     return res.redirect("/");
   }
-  next();
+  return next();
 };
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// debugging
+// FIXME Debugging only!
 app.use("/", (req, res, next) => {
   console.log(req.session);
   console.log(req.user);
   console.log("----------------------------------------");
-  next();
+  return next();
 });
-// debugging
 
 app.get("/login", unAuth);
 
 app.get("/signup", unAuth);
 
-app.post("/login", passport.authenticate("local"), (req, res, next) => {
-  res.status(200).send(req.user);
-});
+app.post("/login", passport.authenticate("local"), (req, res, next) =>
+  res.status(200).send(req.user)
+);
 
 app.post("/signup", unAuth, (req, res, next) => {
   if (req.session.viewCount) {
-    req.session.viewCount++;
+    req.session.viewCount += 1;
   } else {
     req.session.viewCount = 1;
   }
 
-  User.findOne({ email: req.body.email }, async (err, profile) => {
+  User.findOne({ email: req.body.email }, async (dataErr, profile) => {
     try {
       if (profile) {
-        throw err;
+        throw dataErr;
       }
 
       const hashPassword = await bcrypt.hash(req.body.password, 10);
@@ -93,34 +85,29 @@ app.post("/signup", unAuth, (req, res, next) => {
       });
       await newUser.save();
 
-      req.login(newUser, (err) => {
-        if (err) {
-          return next(err);
+      return req.login(newUser, (loginErr) => {
+        if (loginErr) {
+          return next(loginErr);
         }
-        res.status(200).send(req.user);
-        // return res.redirect("/account")
-        // OR return res.status(200).send()
-        // res.redirect("account") auto sends a response 200 status.
+        return res.status(200).send(req.user);
       });
     } catch (err) {
-      res.status(409).send({
+      return res.status(409).send({
         message: "User with this email already exists",
       });
     }
   });
 });
 
-app.get("/account", isAuth, (req, res, next) => {
-  next();
-});
+app.get("/account", isAuth, (req, res, next) => next());
 
-app.get("/logout", (req, res) => {
+app.get("/logout", (req, res, next) => {
   req.logOut();
-  res.redirect("/login");
+  return res.redirect("/login");
 });
 
 app.use(
-  express.static(resolve(__dirname, "dist"), {
+  express.static(resolve("dist"), {
     extensions: ["htm", "html"],
     setHeaders: (res, path, stat) => {
       res.set("Cross-Origin-Embedder-Policy", "require-corp");

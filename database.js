@@ -8,11 +8,7 @@ const dbOptions = {
 };
 
 export const connectMongodb = async () => {
-  try {
-    await mongoose.connect(dbURI, dbOptions);
-  } catch (err) {
-    throw err;
-  }
+  await mongoose.connect(dbURI, dbOptions);
 };
 
 const user = new mongoose.Schema(
