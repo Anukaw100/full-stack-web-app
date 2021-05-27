@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import Bus from 'Common/bus.js';
+import Bus from "Common/bus.js";
 import { Header, Footer } from "Common/common-sections.jsx";
-import { FlashMessage } from 'Common/flash-message.jsx'
+import FlashMessage from "Common/flash-message.jsx";
 import "Common/universal.css";
 import "Common/authenticate.css";
 
@@ -24,62 +24,76 @@ function SignUpForm() {
   };
 
   const flash = (message) => {
-    Bus.emit('flash', (message))
+    Bus.emit("flash", message);
   };
 
-  const handleSubmit = async (e) => {
-    try {
-      e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-      const response = await fetch("/signup", {
-        method: "POST",
-        headers: {"Content-Type" : "application/json"},
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          password: password
-        })
-      })
+    const response = await fetch("/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // See <https://eslint.org/docs/rules/object-shorthand> for explanation of
+      // why key is not needed.
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    });
 
-      if (response.status == 200) {
-        const user = await response.json()
-        sessionStorage.setItem("Name", user.name)
-        window.location = "/account"
-      }
+    if (response.status === 200) {
+      const user = await response.json();
+      sessionStorage.setItem("Name", user.name);
+      window.location = "/account";
+    }
 
-      if (response.status == 409) {
-        flash((await response.json()).message)
-      }
+    if (response.status === 409) {
+      flash((await response.json()).message);
+    }
 
-    } catch (err) {}
-  }
+    return 0;
+  };
 
   return (
     <main className="container form-style">
       <h1>Sign Up</h1>
       <FlashMessage />
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input type="text" name="name" onChange={updateName} required />
-        <label htmlFor="email">Email:</label>
-        <input type="email" name="email" onChange={updateEmail} required />
-        <label htmlFor="password">Password:</label>
-        <input type="password" name="password" onChange={updatePassword} required />
-        <button type="submit" >Sign Up</button>
+        <label>
+          Name:
+          <input type="text" name="name" onChange={updateName} required />
+        </label>
+        <label>
+          Email:
+          <input type="email" name="email" onChange={updateEmail} required />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            onChange={updatePassword}
+            required
+          />
+        </label>
+        <button type="submit">Sign Up</button>
       </form>
       <span>OR</span>
-      <a href="/login/" className="switch-form">Login</a>
+      <a href="/login/" className="switch-form">
+        Login
+      </a>
     </main>
   );
 }
 
 function App() {
   return (
-    <React.Fragment>
+    <>
       <Header />
       <SignUpForm />
       <Footer />
-    </React.Fragment>
+    </>
   );
 }
 

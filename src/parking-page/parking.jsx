@@ -8,7 +8,7 @@ function Info() {
   return (
     <main className="container">
       <h1>Parking Is Tough</h1>
-      <img src={Cover} />
+      <img src={Cover} alt="A busy parking lot" />
       <div className="columns">
         <div className="col col-1">
           <h2>A Waste</h2>
@@ -28,9 +28,9 @@ function Info() {
             to customers not wanting to endure the associated parking
             difficulties. Due to insufficient numbers of parking spots and no
             idea of where a parking spot may be even available, users who try to
-            find parking spots spend a lot of time "cruising" around trying to
-            find empty spots to park their vehicle resulting in wasted time and
-            petrol costs that cause damage to the environment.
+            find parking spots spend a lot of time &quot;cruising&quot; around
+            trying to find empty spots to park their vehicle resulting in wasted
+            time and petrol costs that cause damage to the environment.
           </p>
         </div>
         <div className="col col-1 col-bg">
@@ -71,7 +71,7 @@ function Info() {
           <p>
             The focus of our work is to let people know when and where a parking
             spot is available. This is done using a field in computer vision
-            technology called "Object Detection".
+            technology called &quot;Object Detection&quot;.
           </p>
         </div>
       </div>
@@ -81,11 +81,11 @@ function Info() {
 
 function App() {
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Info />
       <Footer />
-    </React.Fragment>
+    </>
   );
 }
 

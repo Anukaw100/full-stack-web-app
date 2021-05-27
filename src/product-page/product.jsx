@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
 import "./product.css";
 
-/* [Help from Chandra Panta Chhetri](https://dev.to/chandrapantachhetri/
-   responsive-react-file-upload-component-with-drag-and-drop-4ef8)
- */
+// Obtained help/code from <https://dev.to/chandrapantachhetri/responsive-react-file-upload-component-with-drag-and-drop-4ef8>.
 function Uploader(props) {
   const fileInputRef = useRef(null);
   const [fileURL, setFileURL] = useState("");
@@ -14,18 +13,19 @@ function Uploader(props) {
   const handleUploadButtonClick = (event) => {
     event.preventDefault();
     fileInputRef.current.click();
-  }
+  };
 
   const handleImageUpload = (event) => {
     event.preventDefault();
     const fileReader = new FileReader();
     fileReader.onload = (e) => {
-      console.log(e.target.result);
       setFileURL(e.target.result);
-    }
+    };
     fileReader.readAsDataURL(event.target.files[0]);
-  }
+  };
 
+  // For reason to destructure, see <https://stackoverflow.com/questions/53352851/must-use-destructuring-props-assignment-react-destructuring-assignment#comment103150837_53352999>.
+  const { children } = props;
   return (
     <main>
       <section className="upload-container">
@@ -44,10 +44,12 @@ function Uploader(props) {
       </section>
 
       <article className="preview-container">
-        {!fileURL && props.children}  {/** to add the textual information. */}
+        {!fileURL && children}
         <section>
           <div>
-            {fileURL && <img src={fileURL} alt="A parking lot image" />}
+            {fileURL && (
+              <img src={fileURL} alt="Your upload, ideally of a parking lot" />
+            )}
           </div>
         </section>
       </article>
@@ -55,9 +57,13 @@ function Uploader(props) {
   );
 }
 
+Uploader.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 function App() {
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Uploader>
         <h1>Try Our Product</h1>
@@ -67,7 +73,7 @@ function App() {
         </p>
       </Uploader>
       <Footer />
-    </React.Fragment>
+    </>
   );
 }
 

@@ -8,18 +8,20 @@ function Info() {
   return (
     <main className="container">
       <h1>AI For Parking</h1>
-      <img src={Cover}/>
+      <img src={Cover} alt="A robot thinking of complex math equations" />
       <div className="columns">
         <div className="col col-1">
           <h2>Object Detection</h2>
           <p>
             Object detection has become one of the hottest topics in the field
-            of computer vision - enabling computers to better understand
-            digital images and videos
+            of computer vision - enabling computers to better understand digital
+            images and videos
           </p>
         </div>
         <div className="col col-2">
-          <h2>TODO <em>Our Solution</em></h2>
+          <h2>
+            TODO <em>Our Solution</em>
+          </h2>
         </div>
         <div className="col col-1 col-bg">
           <p>
@@ -31,7 +33,9 @@ function Info() {
       </div>
       <div className="columns">
         <div className="col col-3">
-          <h2>TODO <em>Research Method</em></h2>
+          <h2>
+            TODO <em>Research Method</em>
+          </h2>
         </div>
         <div className="col col-1 col-bg">
           <p>
@@ -46,11 +50,11 @@ function Info() {
 
 function App() {
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Info />
       <Footer />
-    </React.Fragment>
+    </>
   );
 }
 
