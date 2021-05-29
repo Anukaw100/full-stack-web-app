@@ -1,0 +1,16 @@
+/** @define logo */
+
+.logo {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.logo__img {
+  /* https://gaurav5430.medium.com/extra-4px-at-the-bottom-of-html-img-8807a7ab0ca2 */
+
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
