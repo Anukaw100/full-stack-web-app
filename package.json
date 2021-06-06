@@ -6,8 +6,8 @@
     "start": "node -r dotenv/config server.js",
     "nodemon": "nodemon -- -r dotenv/config server.js",
     "prettier": "prettier --check .",
-    "eslint": "eslint \"**/*.{jsx,js}\"",
-    "stylelint": "stylelint \"**/*.css\"",
+    "eslint": "eslint --format compact \"**/*.{jsx,js}\"",
+    "stylelint": "stylelint --formatter compact \"**/*.css\"",
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\""
