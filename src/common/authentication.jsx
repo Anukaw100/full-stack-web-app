@@ -69,7 +69,9 @@ export function AuthForm(props) {
       <FlashMessage />
       <form className="form" onSubmit={handleSubmit}>
         {children}
-        <button className="form__button" type="submit">{formTitle}</button>
+        <button className="form__button" type="submit">
+          {formTitle}
+        </button>
       </form>
       <span className="container__alt-info">OR</span>
       <a className="container__alt-button" href={altUrl}>

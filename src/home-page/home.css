@@ -22,15 +22,17 @@ section {
   justify-content: space-evenly;
   align-items: center;
   font-family: sans-serif;
-  color:white
+  color: white;
 }
 
 .light-section {
   background-color: var(--clr-accent-500);
 }
 
-.product-info, .ai-info, .parking-info {
-  width: 40%
+.product-info,
+.ai-info,
+.parking-info {
+  width: 40%;
 }
 
 .product-card {
