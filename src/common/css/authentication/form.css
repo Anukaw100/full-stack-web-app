@@ -1,0 +1,18 @@
+/** @define form */
+
+.form__input {
+  display: block;
+  font-size: 1rem;
+  margin: 0 auto 2em auto;
+  width: 60%;
+}
+
+.form__button {
+  margin: 0 auto 3em auto;
+}
+
+@media (max-width: 450px) {
+  .form__input {
+    width: 80%;
+  }
+}

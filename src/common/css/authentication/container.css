@@ -1,13 +1,6 @@
-.nav-menu .list, .login-nav-item, .sidebar button, #sidebar-menu {
-  /* Elements in "Common/common-sections.jsx". */
-  display: none;
-}
+/** @define container */
 
-a {
-  text-decoration: none;
-}
-
-.form-style {
+.container {
   border: 3px solid black;
   margin: 3em auto 0 auto;
   padding: 0;
@@ -15,20 +8,24 @@ a {
   width: 35%;
 }
 
-.form-style input, .form-style span {
+.container__heading {
+  color: #212614;
+  font-size: 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.container__alt-info {
   display: block;
   font-size: 1rem;
   margin: 0 auto 2em auto;
   width: 60%;
 }
 
-.form-style button {
-  margin: 0 auto 3em auto;
-}
-
-.switch-form {
+.container__alt-button {
   background-color: #1c87c9;
   border: none;
+  box-sizing: border-box;
   color: white;
   display: inline-block;
   font-size: 1rem;
@@ -36,32 +33,26 @@ a {
   margin-bottom: 1em;
   padding: 0.5em;
   text-align: center;
+  text-decoration: none;
   width: 40%;
 }
 
 @media (max-width: 830px) {
-
-  .form-style {
+  .container {
     width: 50%;
   }
 
-  .switch-form {
+  .container__alt-button {
     width: 45%;
   }
-
 }
 
 @media (max-width: 450px) {
-
-  .form-style {
+  .container {
     width: 90%;
   }
 
-  .form-style input {
-    width: 80%;
-  }
-
-  .switch-form {
+  .container__alt-button {
     width: 45%;
   }
 }

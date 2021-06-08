@@ -1,0 +1,7 @@
+/** @define header */
+
+.header__list_type_primary,
+.header__login-link,
+.header__secondary-nav {
+  display: none;
+}

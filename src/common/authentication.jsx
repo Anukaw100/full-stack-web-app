@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Bus from "Common/bus.js";
 import FlashMessage from "Common/flash-message.jsx";
-import "Common/universal.css";
-import "Common/authenticate.css";
+import "Common/css/authentication/header.css";
+import "Common/css/authentication/container.css";
+import "Common/css/authentication/form.css";
 
 export function AuthInput(props) {
   const { type, name, value, onChange } = props;
@@ -14,6 +15,7 @@ export function AuthInput(props) {
     <label>
       {label}:
       <input
+        className="form__input"
         type={type}
         name={name}
         value={value}
@@ -62,15 +64,15 @@ export function AuthForm(props) {
   };
 
   return (
-    <main className="container form-style">
-      <h1>{formTitle}</h1>
+    <main className="container">
+      <h1 className="container__heading">{formTitle}</h1>
       <FlashMessage />
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         {children}
-        <button type="submit">{formTitle}</button>
+        <button className="form__button" type="submit">{formTitle}</button>
       </form>
-      <span>OR</span>
-      <a href={altUrl} className="switch-form">
+      <span className="container__alt-info">OR</span>
+      <a className="container__alt-button" href={altUrl}>
         {altTitle}
       </a>
     </main>
