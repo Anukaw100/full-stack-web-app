@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import Logo from "Images/logo.gif";
-import "Common/css-common-sections/header.css";
-import "Common/css-common-sections/footer.css";
-import "Common/css-common-sections/logo.css";
+import "Common/css/common-sections/header.css";
+import "Common/css/common-sections/footer.css";
+import "Common/css/common-sections/logo.css";
 
 export function Header() {
   const secondaryNavRef = useRef(null);
