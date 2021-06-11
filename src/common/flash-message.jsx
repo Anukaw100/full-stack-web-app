@@ -11,7 +11,6 @@ export default function FlashMessage() {
     Bus.addListener("flash", (newMessage) => {
       setVisibility(true);
       setMessage(newMessage);
-      // FIXME setTimeout(() => setVisibility(false), 4000);
     });
   }, []);
 
