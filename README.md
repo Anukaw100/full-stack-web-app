@@ -6,6 +6,9 @@ Homepage
 Signup & Account pages
 ![Signup page](./public/readme_images/Signup.gif)
 
+Product page
+![Product page](./public/readme_images/Product.gif)
+
 Within this project, we attempt to create a website to demonstrate a [machine
 learning model](https://github.com/ss-raicangu/parking-detection-ml.git) that is
 trained to detect vacant parking space. It also serves as practice for our web
