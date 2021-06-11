@@ -1,20 +1,25 @@
+/** @define alert */
+
 .alert {
+  background: lightcoral;
   border-radius: 10px;
   color: white;
   display: flex;
   justify-content: center;
   margin-bottom: 5%;
-  background: lightcoral;
 }
 
-p {
+.alert__message {
   margin-left: auto;
 }
 
-.close {
+.alert__close-button {
+  background: lightcoral;
+  border: 0;
+  box-sizing: border-box;
   color: white;
   cursor: pointer;
-  margin-top: 0.2em;
+  height: 5%;
   margin-left: auto;
-  padding-right: 0.2em;
+  padding: 0.2em;
 }
