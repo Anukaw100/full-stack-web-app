@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/common-sections.jsx";
+import "Common/css/universal/document.css";
 import "./home.css";
 
 function Info() {

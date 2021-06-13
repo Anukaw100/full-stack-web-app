@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/common-sections.jsx";
 import { AuthInput, AuthForm } from "Common/authentication.jsx";
+import "Common/css/universal/document.css";
 
 function LoginForm() {
   const [email, setEmail] = useState("");

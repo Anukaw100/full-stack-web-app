@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import { Header, Footer } from "Common/common-sections.jsx";
-import "Common/universal.css";
+import "Common/css/universal/document.css";
 import "./product.css";
 
 // Obtained help/code from <https://dev.to/chandrapantachhetri/responsive-react-file-upload-component-with-drag-and-drop-4ef8>.

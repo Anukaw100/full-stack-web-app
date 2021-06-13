@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import Logo from "Images/logo.gif";
-import "Common/css/universal/document.css";
 import "Common/css/common-sections/header.css";
 import "Common/css/common-sections/footer.css";
 import "Common/css/common-sections/logo.css";

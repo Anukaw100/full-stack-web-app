@@ -1,0 +1,19 @@
+/** @define container */
+
+.container {
+  padding-top: 3%;
+  margin: auto;
+  text-align: center;
+  width: 60%;
+}
+
+.container__heading {
+  color: #212614;
+  font-size: 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.container__cover-image {
+  width: 100%;
+}

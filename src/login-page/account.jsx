@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/common-sections.jsx";
-import "Common/universal.css";
+import "Common/css/universal/document.css";
 
 function Account() {
   const removeStorage = () => sessionStorage.removeItem("Name");

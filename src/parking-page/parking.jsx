@@ -2,22 +2,28 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Header, Footer } from "Common/common-sections.jsx";
 import Cover from "Images/busy-parking-lot.jpg";
-import "Common/universal.css";
+import "Common/css/universal/document.css";
+import "Common/css/universal/container.css";
+import "Common/css/universal/flex-table.css";
 
 function Info() {
   return (
     <main className="container">
-      <h1>Parking Is Tough</h1>
-      <img src={Cover} alt="A busy parking lot" />
-      <div className="columns">
-        <div className="col col-1">
+      <h1 className="container__heading">Parking Is Tough</h1>
+      <img
+        className="container__cover-image"
+        src={Cover}
+        alt="A busy parking lot"
+      />
+      <div className="flex-table">
+        <div className="flex-table__column flex-table__column_position_1">
           <h2>A Waste</h2>
           <p>
             A common problem that drivers face nowadays, especially in busy
             public urban areas, is parking lot congestion.
           </p>
         </div>
-        <div className="col col-2">
+        <div className="flex-table__column flex-table__column_position_2">
           <h2>No One Wins</h2>
           <p>
             Road rage is undoubtedly a product of the frustration of finding
@@ -33,15 +39,15 @@ function Info() {
             time and petrol costs that cause damage to the environment.
           </p>
         </div>
-        <div className="col col-1 col-bg">
+        <div className="flex-table__column flex-table__column_position_1 flex-table__column flex-table__column_background_dark">
           <p>
             Americans spend on average 17 hours per year at a cost of $73
             billion dollars searching for parking.
           </p>
         </div>
       </div>
-      <div className="columns">
-        <div className="col col-3">
+      <div className="flex-table">
+        <div className="flex-table__column flex-table__column_position_3">
           <h2>Current Solutions To The Problem</h2>
           <p>
             One solution to this problem is to expand the size and/or quantity
@@ -67,7 +73,7 @@ function Info() {
             needs maintenance after expansion.
           </p>
         </div>
-        <div className="col col-1 col-bg">
+        <div className="flex-table__column flex-table__column_position_1 flex-table__column flex-table__column_background_dark">
           <p>
             The focus of our work is to let people know when and where a parking
             spot is available. This is done using a field in computer vision
