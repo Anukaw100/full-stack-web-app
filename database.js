@@ -10,6 +10,7 @@ const dbOptions = {
 export const connectMongodb = async () => {
   try{
     await mongoose.connect(dbURI, dbOptions)
+    console.log("Connected to db")
   } catch(err) {
     throw err;
   }
