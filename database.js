@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
-export const dbURI = process.env.DB_STRING;
-
-const dbOptions = {
+mongoose.connect(process.env.DB_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-};
+  serverSelectionTimeoutMS: 60000
+});
 
-export const connectMongodb = async () => {
-  await mongoose.connect(dbURI, dbOptions);
-};
+export const databaseConnection = mongoose.connection;
+databaseConnection.on("disconnecting", (error) => console.log("Disconnecting from database..."));
+databaseConnection.on("disconnected", (error) => console.log("Disconnected from database!"));
+databaseConnection.on("close", (error) => console.log("Successfully closed database connection!"));
 
 const user = new mongoose.Schema(
   {

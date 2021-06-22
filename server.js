@@ -6,15 +6,13 @@ import session from "express-session";
 import connectMongoDBSession from "connect-mongodb-session";
 import passport from "passport";
 import "./passport.config.js";
-import User, { dbURI, connectMongodb } from "./database.js";
+import User, { databaseConnection } from "./database.js";
 import config from "./webpack.config.cjs";
-
-connectMongodb();
 
 // Store session in MongoDB.
 const MongoDBStore = connectMongoDBSession(session);
 const sessionStore = new MongoDBStore({
-  uri: dbURI,
+  uri: process.env.DB_STRING,
   collection: "session",
 });
 
@@ -119,6 +117,20 @@ app.use(
 app.set("env", config.mode);
 
 const options = { port: 3000, host: "localhost" };
-createServer(app).listen(options, () => {
-  console.log(`Server listening at (http://${options.host}:${options.port}).`);
+const server = createServer(app);
+server.listen(options, () => console.log(`Server listening at (http://${options.host}:${options.port}).`));
+server.on("close", async (error) => {
+  // Added '\n' to avoid showing on same line as SIGINT (Ctrl-C) command.
+  console.log("\nClosing server...");
+  databaseConnection.close();
+  console.log("Successfully closed server!");
+  return 0;
+});
+
+// FIXME Move the code to proper sub-files. For example, express app to
+// `app.js`, HTTP server to `server.js`, and MongoDB session to `session.js`.
+// [Source to SIGINT event listener](https://stackoverflow.com/a/20165643).
+process.on("SIGINT", async (error) => {
+  await server.close();
+  return process.exit();
 });
