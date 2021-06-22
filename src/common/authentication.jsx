@@ -82,9 +82,9 @@ export function AuthForm(props) {
 }
 
 AuthForm.propTypes = {
-  signUp: PropTypes.bool.isRequired,
+  signUp: PropTypes.bool,
   formJsonObject: PropTypes.objectOf(PropTypes.string).isRequired,
   failureStatus: PropTypes.number.isRequired,
   failureMessage: PropTypes.func.isRequired,
-  children: PropTypes.arrayOf(PropTypes.AuthInput).isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
