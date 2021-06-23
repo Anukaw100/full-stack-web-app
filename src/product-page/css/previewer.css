@@ -1,0 +1,11 @@
+/** @define previewer */
+
+.previewer {
+  margin-bottom: 1.5rem;
+  padding: 0 0.75rem;
+}
+
+.previewer__image {
+  height: 100%;
+  width: 100%;
+}

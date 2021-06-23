@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/css/universal/document.css";
-import "./product.css";
+import "./css/uploader.css";
+import "./css/previewer.css";
 
 // Obtained help/code from <https://dev.to/chandrapantachhetri/responsive-react-file-upload-component-with-drag-and-drop-4ef8>.
 function Uploader(props) {
@@ -28,12 +29,17 @@ function Uploader(props) {
   const { children } = props;
   return (
     <main>
-      <section className="upload-container">
-        <p>Drag and drop your image anywhere or</p>
-        <button type="button" onClick={handleUploadButtonClick}>
+      <section className="uploader">
+        <p className="uploader__info">Drag and drop your image anywhere or</p>
+        <button
+          className="uploader__button"
+          type="button"
+          onClick={handleUploadButtonClick}
+        >
           <span>Upload an image</span>
         </button>
         <input
+          className="uploader__area"
           type="file"
           ref={fileInputRef}
           onChange={handleImageUpload}
@@ -43,12 +49,16 @@ function Uploader(props) {
         />
       </section>
 
-      <article className="preview-container">
+      <article className="previewer">
         {!fileURL && children}
         <section>
           <div>
             {fileURL && (
-              <img src={fileURL} alt="Your upload, ideally of a parking lot" />
+              <img
+                className="previewer__image"
+                src={fileURL}
+                alt="Your upload, ideally of a parking lot"
+              />
             )}
           </div>
         </section>
