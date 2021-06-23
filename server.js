@@ -118,7 +118,9 @@ app.set("env", config.mode);
 
 const options = { port: 3000, host: "localhost" };
 const server = createServer(app);
-server.listen(options, () => console.log(`Server listening at (http://${options.host}:${options.port}).`));
+server.listen(options, () =>
+  console.log(`Server listening at (http://${options.host}:${options.port}).`)
+);
 server.on("close", async (error) => {
   // Added '\n' to avoid showing on same line as SIGINT (Ctrl-C) command.
   console.log("\nClosing server...");

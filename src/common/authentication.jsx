@@ -88,3 +88,7 @@ AuthForm.propTypes = {
   failureMessage: PropTypes.func.isRequired,
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
+
+AuthForm.defaultProps = {
+  signUp: false,
+};
