@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "Images/logo.gif";
 import "Common/common-sections.css";
 
@@ -10,11 +11,11 @@ export function Header() {
   return (
     <header>
       <nav className="nav-menu">
-        <a className="logo" href="/"><img src={Logo}/></a>
+        <Link className="logo" to="/"><img src={Logo}/></Link>
         <ol className="list">
-          <li><a href="/state-of-parking/">State of Parking</a></li>
-          <li><a href="/why-ai/">Why A.I?</a></li>
-          <li><a href="/product/">Product</a></li>
+          <li><Link to="/state-of-parking/">State of Parking</Link></li>
+          <li><Link to="/why-ai/">Why A.I?</Link></li>
+          <li><Link to="/product/">Product</Link></li>
         </ol>
         <span className="login-nav-item"><a id="loginlink" href="/account/" >Account</a></span>
       </nav>

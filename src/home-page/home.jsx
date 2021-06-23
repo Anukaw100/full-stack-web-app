@@ -1,9 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Header, Footer } from "Common/common-sections.jsx";
 import "./home.css"
 
-function Info() {
+export default function Info() {
   return (
     <main>
       <section>
@@ -58,15 +56,3 @@ function Info() {
     </main>
   );
 }
-
-function App() {
-  return (
-    <React.Fragment>
-      <Header />
-      <Info />
-      <Footer />
-    </React.Fragment>
-  );
-}
-
-ReactDOM.render(<App />, document.getElementById("root"));

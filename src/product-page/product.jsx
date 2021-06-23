@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
-import { Header, Footer } from "Common/common-sections.jsx";
 import "Common/universal.css";
 import "./product.css";
 
 /* [Help from Chandra Panta Chhetri](https://dev.to/chandrapantachhetri/
    responsive-react-file-upload-component-with-drag-and-drop-4ef8)
  */
-function Uploader(props) {
+export default function Uploader(props) {
   const fileInputRef = useRef(null);
   const [fileURL, setFileURL] = useState("");
 
@@ -54,21 +52,3 @@ function Uploader(props) {
     </main>
   );
 }
-
-function App() {
-  return (
-    <React.Fragment>
-      <Header />
-      <Uploader>
-        <h1>Try Our Product</h1>
-        <p>
-          Upload an image of a parking lot here to see a labelled image of all
-          the vacant and occupied parking spaces.
-        </p>
-      </Uploader>
-      <Footer />
-    </React.Fragment>
-  );
-}
-
-ReactDOM.render(<App />, document.getElementById("root"));
