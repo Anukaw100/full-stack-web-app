@@ -1,0 +1,27 @@
+/** @define section */
+
+:root {
+  --section-colour-neutral-900: hsl(207, 19%, 9%);
+  --section-colour-accent-500: hsl(192, 24%, 24%);
+}
+
+.section {
+  height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: sans-serif;
+  color: white;
+}
+
+.section_type_dark {
+  background-color: var(--section-colour-neutral-900);
+}
+
+.section_type_light {
+  background-color: var(--section-colour-accent-500);
+}
+
+.section__info {
+  width: 40%;
+}
