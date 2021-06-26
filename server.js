@@ -46,16 +46,7 @@ const unAuth = (req, res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// FIXME Debugging only!
-app.use("/", (req, res, next) => {
-  console.log(req.session);
-  console.log(req.user);
-  console.log("----------------------------------------");
-  return next();
-});
-
 app.get("/login", unAuth);
-
 app.get("/signup", unAuth);
 
 app.post("/login", passport.authenticate("local"), (req, res, next) =>
